@@ -123,6 +123,20 @@ gulp、ect、yamlの連携により、様々なテンプレートパターンの
 
 ### データの呼び出し
 上記**データのセット**で指定したデータは@を使って呼び出します
+
+init.yamlに
+```yaml
+pages:
+  root:
+    files:
+      - name: index
+        title: トップ
+        class: home
+      - name: ex
+        title: example
+        class: example
+```
+というデータがあった場合
 ```ect
 <p><%= @title %></p>
 ```
