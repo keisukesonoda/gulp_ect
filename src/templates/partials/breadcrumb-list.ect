@@ -1,0 +1,9 @@
+<% if @class isnt 'home' : %>
+<nav id="bnav" class="bnav">
+	<h2 class="tr">Breadcrumb Navigation</h2>
+	<ul class="breadcrumb-items">
+		<li class="breadcrumb-item"><a href="../">home</a></li>
+		<li class="breadcrumb-item"><%= @title %></li>
+	</ul><!-- /breadcrumb-items -->
+</nav><!-- /bnav -->
+<% end %>

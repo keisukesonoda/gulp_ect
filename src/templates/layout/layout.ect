@@ -1,0 +1,48 @@
+<% PATH = if @class isnt 'home' then '../';	%>
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<% for name, cnt of @init.metas.defaults : %>
+	<meta name="<%= name %>" content="<%= cnt %>">
+<% end %>
+<% for name, cnt of @init.metas.ogs : %>
+	<meta name="<%= name %>" content="<%= cnt %>">
+<% end %>
+<% for name, cnt of @init.metas.twitter : %>
+	<meta name="<%= name %>" content="<%= cnt %>">
+<% end %>
+	<title><%= @title %> | <%= @init.metas.global.siteTitle %></title>
+	<script src="<%= PATH %>js/ua.js"></script>
+	<!--[if lt IE 9]>
+	<script src="js/html5shiv.js" type="text/javascript"></script>
+	<script src="js/selectivizr-min.js" type="text/javascript"></script>
+	<![endif]-->
+</head>
+<body class="<%= @page_class %>">
+	<div class="wrapper">
+		<header id="header" class="header">
+			<div class="container">
+				<h1><%= @title %> | <%= @init.metas.global.siteTitle %> </h1>
+				<p class="mt2"><%= @init.metas.defaults.description %></p>
+				<% include 'partials/gnav.ect' %>
+				<% include 'partials/breadcrumb-list.ect' %>
+			</div><!-- /container -->
+		</header><!-- /header -->
+
+		<div class="contents">
+			<% content %>
+		</div><!-- /contents -->
+
+		<footer id="footer" class="footer">
+			<div class="container">
+				<h2>copyright &copy; <%= @init.metas.global.siteTitle %></h2>
+			</div><!-- /container -->
+		</footer><!-- /footer -->
+	</div><!-- /wrapper -->
+<% for script in @init.loadJavascripts : %>
+	<script type="text/javascript" src="<%= PATH %>js/<%= script %>.js"></script>
+<% end %>
+</body>
+</html>

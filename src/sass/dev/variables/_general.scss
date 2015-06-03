@@ -1,0 +1,70 @@
+//-------------------------------------
+//	Settings
+//-------------------------------------
+
+//	Variables
+//-------------------------------------
+
+
+// Colors
+$color-a: #000000; //
+$color-b: #000000; //
+$color-c: #000000; //
+$color-d: #000000; //
+$color-e: #000000; //
+$color-f: #000000; //
+$color-g: #000000; //
+$color-h: #000000; //
+$color-i: #000000; //
+$color-j: #000000; //
+$color-k: #000000; //
+$color-l: #000000; //
+
+
+// Heights
+$height-tap-1: 26px;
+$height-tap-2: 32px;
+$height-tap-3: 42px;
+
+
+// Border Radius
+$radius-base: 5px;
+$radius-2: $radius-base * 2;
+$radius-3: $radius-base * 4;
+
+
+// Font Settings
+/*
+ * Copyright (C) 2014 Root-013
+ *			https://www.google.com/get/noto/
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *			http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@font-face {
+	font-family: 'Noto Sans';
+	src: url('../fonts/NotoSansCJKjp-Regular-subset.eot'); /* IE9 Compat Modes */
+	src: url('../fonts/NotoSansCJKjp-Regular-subset.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+			 url('../fonts/NotoSansCJKjp-Regular-subset.woff') format('woff'), /* Modern Browsers */
+			 url('../fonts/NotoSansCJKjp-Regular-subset.ttf')	format('truetype'); /* Safari, Android, iOS */
+}
+
+$notosans: 'Noto Sans',"メイリオ",Meiryo,'Jun34Pro',"Lucida Grande","segoe UI","ヒラギノ丸ゴ ProN W4","Hiragino Maru Gothic Pro",Verdana,Arial,sans-serif;
+
+$meiryoFont:"メイリオ",Meiryo,'Jun34Pro',"Lucida Grande","segoe UI","ヒラギノ丸ゴ ProN W4","Hiragino Maru Gothic Pro",Verdana,Arial,sans-serif;
+
+$gothicFont:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+
+$minchoFont:'ヒラギノ明朝 Pro W3','HG明朝E','ＭＳ Ｐ明朝','ＭＳ 明朝',serif;
+
+$helvetica: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;

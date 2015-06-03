@@ -1,0 +1,61 @@
+metas:
+  global:
+    siteTitle: 'gulp ect sample'
+  defaults:
+    keywords: 'gulp,ect,html,テンプレート'
+    description: 'gulp-ectのサンプルページ'
+    viewport: width=device-width
+  ogs:
+    "og:title": ''
+    "og:description": ''
+    "og:url": ''
+    "og:image": ''
+  twitter:
+    "twitter:title": ''
+    "twitter:description": ''
+    "twitter:url": ''
+    "twitter:image:src": ''
+    "twitter:card": 'summary_large_image'
+
+
+pages:
+  root:
+    files:
+      - name: index
+        title: トップ
+        class: home
+      - name: ex
+        title: example
+        class: example
+  lowers:
+    - dir: hoge
+      files:
+        - name: index
+          title: ほげ-1
+          class: hoge-1
+        - name: hoge
+          title: ほげ-2
+          class: hoge-2
+    - dir: fuga
+      files:
+        - name: index
+          title: ふが-1
+          class: fuga-1
+        - name: fuga
+          title: ふが-2
+          class: fuga-2
+
+
+
+loadJavascripts:
+  - jquery-1.11.2.min
+  - jquery.transit
+  - script
+
+
+pluginSettings:
+  cssmin:
+    - style
+    - sp
+  uglifys:
+    - script
