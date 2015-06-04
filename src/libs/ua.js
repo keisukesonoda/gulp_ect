@@ -22,6 +22,8 @@ changeUserAgent = function() {
 
         if( root.substr( 0, 1 ) === '/' ){
           root = location.protocol + '//' + location.host + root;
+        }else if( root.substr( 0, 4 ) === 'file' ){
+          break;
         }else if( root.substr( 0, 4 ) !== 'http' ){
           root = cur_path + root;
         }
