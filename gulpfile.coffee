@@ -10,6 +10,7 @@ dir = {
 
 # requires
 # --------------------
+spawn        = require('child_process').spawn
 gulp         = require 'gulp'
 browser      = require 'browser-sync'
 copy         = require 'gulp-copy'
@@ -39,17 +40,17 @@ gulp.task 'server', ->
 		open: true,
 	})
 
-gulp.task 'reload', ->
-	browser.reload({ stream: true })
-
 
 
 # compass sass
 # --------------------
 gulp.task 'compass', ->
 	gulp.src "#{dir.src}"+'/sass/**/*.scss'
-			.pipe compass({config_file: 'config.rb', css: 'css', sass: 'sass' })
-			.pipe gulp.dest "#{dir.dest}"+'/css'
+			.pipe compass({
+				config_file: 'config.rb'
+				sass: "#{dir.src}"+'/sass'
+				css: "#{dir.dest}"+'/css'
+			})
 
 gulp.task 'sass', ->
 	sass(dir.src+'/sass/', ({ style: 'expanded', compass: true }))
@@ -172,3 +173,18 @@ gulp.task 'default', ['server'], ->
 	gulp.watch "#{dir.src}"+'/'+dir.img+'/*', ['copy-mainImages']
 	gulp.watch "#{dir.src}"+'/'+"#{dir.temp}"+'/content/**/'+dir.img+'/*', ['copy-lowerImages']
 	gulp.watch ["#{dir.src}"+'/*.html', "#{dir.src}"+'/**/*.html'], ['copy-html']
+	#gulp.watch "#{dir.src}"+'/data/*.yaml', ['restart']
+
+
+# gulp restart
+# --------------------
+#gulp.task 'restart', ->
+#	if process
+#		process.kill()
+#	process = spawn 'gulp', ['start'], {stdio: 'inherit'}
+
+
+# default
+# --------------------
+#gulp.task 'default', ['start'], ->
+#	gulp.watch 'gulpfile.coffee', ['restart']
