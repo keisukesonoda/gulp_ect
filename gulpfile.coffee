@@ -125,40 +125,24 @@ gulp.task 'copy-lowerImages', ->
 
 # ect
 gulp.task 'ect', ->
-	for page, detail of data_init.pages
-		switch page
-			when 'root'
-				for file in detail.files
-					gulp.src "#{dir.src}"+'/'+"#{dir.temp}"+'/content/'+file.name+'.ect'
-							.pipe ect({
-								options:
-									root: "#{dir.src}"+'/'+"#{dir.temp}"
-									ext:  '.ect'
-								data:
-									name: file.name
-									title: file.title
-									class: file.class
-									root: true
-									init: data_init
-							})
-							.pipe gulp.dest "#{dir.dest}"
-							.pipe browser.reload({ stream: true })
-			when 'lowers'
-				for lower in detail
-					for file in lower.files
-						gulp.src "#{dir.src}"+'/'+"#{dir.temp}"+'/content/'+lower.dir+'/'+file.name+'.ect'
-								.pipe ect({
-									options:
-										root: "#{dir.src}"+'/'+"#{dir.temp}"
-										ext:  '.ect'
-									data:
-										name: file.name
-										title: file.title
-										class: file.class
-										init: data_init
-								})
-								.pipe gulp.dest "#{dir.dest}"+'/'+lower.dir
-								.pipe browser.reload({ stream: true })
+	for page, details of data_init.pages
+		for detail in details
+			directory = if detail.dir isnt null then detail.dir+'/' else ''
+			for file in detail.files
+				gulp.src "#{dir.src}"+'/'+"#{dir.temp}"+'/content/'+directory+file.name+'.ect'
+						.pipe ect({
+							options:
+								root: "#{dir.src}"+'/'+"#{dir.temp}"
+								ext:  '.ect'
+							data:
+								name: file.name
+								title: file.title
+								class: file.class
+								hierarchy: if page is 'root' then 'root'
+								init: data_init
+						})
+						.pipe gulp.dest "#{dir.dest}"+'/'+directory
+						.pipe browser.reload({ stream: true })
 
 
 

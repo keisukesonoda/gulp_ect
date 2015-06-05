@@ -20,13 +20,14 @@ metas:
 
 pages:
   root:
-    files:
-      - name: index
-        title: トップ
-        class: home
-      - name: ex
-        title: example
-        class: example
+    - dir: 
+      files:
+        - name: index
+          title: トップ
+          class: home
+        - name: ex
+          title: example
+          class: example
   lowers:
     - dir: hoge
       files:
