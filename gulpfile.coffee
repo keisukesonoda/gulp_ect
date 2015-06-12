@@ -77,6 +77,11 @@ gulp.task 'coffee', ->
 
 # copies
 # --------------------
+filters =
+	js:  filter '*.js'
+	img: filter ['*.jpg', '*.png', '*.gif']
+
+
 # html
 gulp.task 'copy-html', ->
 	gulp.src "#{dir.src}"+'/*.html', {base: "#{dir.src}"}
@@ -85,43 +90,40 @@ gulp.task 'copy-html', ->
 
 # js files
 gulp.task 'copy-js', ->
-	jsFilter = filter '*.js'
 	gulp.src "#{dir.src}"+'/js/*.js'
-			.pipe jsFilter
-			.pipe jsFilter.restore()
+			.pipe filters.js
+			.pipe filters.js.restore()
 			.pipe gulp.dest "#{dir.dest}"+'/js'
 			.pipe browser.reload({ stream: true })
 
 # js libs
 gulp.task 'copy-jsLibs', ->
-	jsFilter = filter '*.js'
 	gulp.src "#{dir.src}"+'/libs/*.js'
-			.pipe jsFilter
-			.pipe jsFilter.restore()
+			.pipe filters.js
+			.pipe filters.js.restore()
 			.pipe gulp.dest "#{dir.dest}"+'/js'
 			.pipe browser.reload({ stream: true })
 
 # main images
 gulp.task 'copy-mainImages', ->
-	imgFilter = filter ['*.jpg', '*.png', '*.gif']
 	gulp.src "#{dir.src}"+'/'+dir.img+'/*'
-			.pipe imgFilter
-			.pipe imgFilter.restore()
+			.pipe filters.img
+			.pipe filters.img.restore()
 			.pipe gulp.dest "#{dir.dest}"+'/'+dir.img
 			.pipe browser.reload({ stream: true })
 
 # lower images
 gulp.task 'copy-lowerImages', ->
-	imgFilter = filter ['*.jpg', '*.png', '*.gif']
 	for page, detail of data_init.pages
 		if page is 'lowers'
 			for lower in detail
 				for file in lower.files
 					gulp.src "#{dir.src}"+'/'+"#{dir.temp}"+'/content/'+lower.dir+'/'+"#{dir.img}"+'/*'
-							.pipe imgFilter
-							.pipe imgFilter.restore()
+							.pipe filters.img
+							.pipe filters.img.restore()
 							.pipe gulp.dest "#{dir.dest}"+'/'+lower.dir+'/'+"#{dir.img}"
 							.pipe browser.reload({ stream: true })
+
 
 # ect
 gulp.task 'ect', ->
@@ -144,11 +146,7 @@ gulp.task 'ect', ->
 						.pipe gulp.dest "#{dir.dest}"+'/'+directory
 						.pipe browser.reload({ stream: true })
 
-
-
-# default task
-# --------------------
-gulp.task 'default', ['server'], ->
+gulp.task 'watch', ->
 	gulp.watch "#{dir.src}"+'/coffee/*.coffee', ['coffee']
 	gulp.watch "#{dir.src}"+'/sass/**/*.scss', ['sass']
 	gulp.watch "#{dir.src}"+'/js/*.js', ['copy-js']
@@ -157,18 +155,9 @@ gulp.task 'default', ['server'], ->
 	gulp.watch "#{dir.src}"+'/'+dir.img+'/*', ['copy-mainImages']
 	gulp.watch "#{dir.src}"+'/'+"#{dir.temp}"+'/content/**/'+dir.img+'/*', ['copy-lowerImages']
 	gulp.watch ["#{dir.src}"+'/*.html', "#{dir.src}"+'/**/*.html'], ['copy-html']
-	#gulp.watch "#{dir.src}"+'/data/*.yaml', ['restart']
 
 
-# gulp restart
+
+# default task
 # --------------------
-#gulp.task 'restart', ->
-#	if process
-#		process.kill()
-#	process = spawn 'gulp', ['start'], {stdio: 'inherit'}
-
-
-# default
-# --------------------
-#gulp.task 'default', ['start'], ->
-#	gulp.watch 'gulpfile.coffee', ['restart']
+gulp.task 'default', ['server', 'watch'], ->

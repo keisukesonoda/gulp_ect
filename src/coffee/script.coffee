@@ -1,6 +1,6 @@
 $(document).on({
 	ready: ->
-		console.log 'ready---'
+		console.log UA
 })
 
 $(window).on({

@@ -54,9 +54,3 @@ loadJavascripts:
   - script
 
 
-pluginSettings:
-  cssmin:
-    - style
-    - sp
-  uglifys:
-    - script
