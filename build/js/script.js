@@ -1,6 +1,6 @@
 $(document).on({
   ready: function() {
-    return console.log('ready---');
+    return console.log(UA);
   }
 });
 
