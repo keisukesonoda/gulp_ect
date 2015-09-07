@@ -1,8 +1,42 @@
 /*-------------------------------------
  Base Settings
 -------------------------------------*/
+// 668px以上
 html {
+	// font-size: 62.5%; // 1.2rem ->
+	// font-size: 0.195%*640;
 	font-size: 62.5%;
+}
+// 569px 〜 667px（iphone6ヨコ相当）
+@media screen and(max-width: 667px) {
+	html {
+		font-size: 0.195%*667; // 1.2rem -> 25.3px
+	}
+}
+// 415px 〜 568px（iphone5ヨコ相当）
+@media screen and(max-width: 568px) {
+	html {
+		font-size: 0.195%*568; // 1.2rem -> 21.6px
+	}
+}
+// 376px 〜 414px（iphone6 plusタテ相当）
+@media screen and(max-width: 414px) {
+	html {
+		font-size: 0.195%*414; // 1.2rem -> 17.3px
+	}
+}
+// 321px 〜 375px（iphone6タテ相当）
+@media screen and(max-width: 375px) {
+	html {
+		font-size: 0.195%*375; // 1.2rem -> 14.25px
+	}
+}
+// 〜 320px（iphone5タテ相当）
+@media screen and(max-width: 320px) {
+	html {
+		font-size: 62.5%; // 1.2rem -> 12px
+		// 1px あたり 0.195%
+	}
 }
 body {
 	color: $color-a;
