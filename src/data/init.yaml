@@ -24,9 +24,9 @@ pages:
       - name: index
         title: トップ
         class: home
-      - name: ex
-        title: example
-        class: example
+      # - name: ex
+      #   title: example
+      #   class: example
 
   - dir: hoge
     files:
