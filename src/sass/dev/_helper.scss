@@ -4,35 +4,35 @@
 
 // Clearfix (.clearfix)
 .clearfix {
-	zoom:1;
-	.left {float: left;}
-	.right {float: right;}
+  zoom:1;
+  // .left {float: left;}
+  // .right {float: right;}
 }
 .clearfix:after {
-	content: "";
-	display: block;
-	clear: both;
+  content: "";
+  display: block;
+  clear: both;
 }
 
 // Image Replacement
 .ir {
-	overflow: hidden;
-	white-space: nowrap;
-	text-indent: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-indent: 100%;
 }
 
 // text remobe
 .tr {
-	position: absolute;
-	top: 0; left: -5000px;
+  position: absolute;
+  top: 0; left: -5000px;
 }
 
 
 // Ellipsis
 .elps {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 
@@ -42,19 +42,19 @@
 .fix { position: fixed; }
 
 
-//	State Classes
+//  State Classes
 //-------------------------------------
 
-.dn { display: none !important;	}
-.db { display: block !important;	}
-.di { display: inline !important;	}
-.ds { display: inline-block !important;	}
+.dn { display: none !important; }
+.db { display: block !important;  }
+.di { display: inline !important; }
+.ds { display: inline-block !important; }
 .dt { display: table !important; }
 .dc { display: table-cell !important;}
 
 
 
-//	Border Radius
+//  Border Radius
 //-------------------------------------
 
 .rn { border-radius: 0 !important; }
@@ -63,7 +63,7 @@
 .rl { border-radius: $radius-3; }
 
 
-//	Text Decorative Classes
+//  Text Decorative Classes
 //-------------------------------------
 
 .ca { color: $color-a !important; }
@@ -115,39 +115,33 @@
 .vb { vertical-align: bottom; }
 
 
-// for js opacity change
-.light {
-	@include opacity(0.8);
-}
-
-
 /* positions
 -------------------- */
 .pos {
-	position: absolute;
-	margin: auto;
+  position: absolute;
+  margin: auto;
 }
 
 .pos-center {
-	@extend .pos;
-	top: 0; bottom: 0;
-	left: 0; right: 0;
+  @extend .pos;
+  top: 0; bottom: 0;
+  left: 0; right: 0;
 }
 
 .pos-vertical-center {
-	@extend .pos;
-	top: 0; bottom: 0;
+  @extend .pos;
+  top: 0; bottom: 0;
 }
 
 .pos-horizontal-center {
-	@extend .pos;
-	left: 0; right: 0;
+  @extend .pos;
+  left: 0; right: 0;
 }
 
 .pos-override-center {
-	@extend .pos;
-	top: -50%; bottom: -50%;
-	left: -50%; right: -50%;
+  @extend .pos;
+  top: -50%; bottom: -50%;
+  left: -50%; right: -50%;
 }
 
 

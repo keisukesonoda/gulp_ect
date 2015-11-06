@@ -1,16 +1,16 @@
 //-------------------------------------
-//	Settings
+//  Settings
 //-------------------------------------
 
-//	Variables
+//  Variables
 //-------------------------------------
 
 
 // Colors
-$color-a: #000000; //
-$color-b: #000000; //
-$color-c: #000000; //
-$color-d: #000000; //
+$color-a: #363029; // text base
+$color-b: #8d8157; // footer color
+$color-c: #eadb81; // movie border
+$color-d: #b99d02; // link
 $color-e: #000000; //
 $color-f: #000000; //
 $color-g: #000000; //
@@ -36,13 +36,13 @@ $radius-3: $radius-base * 4;
 // Font Settings
 /*
  * Copyright (C) 2014 Root-013
- *			https://www.google.com/get/noto/
+ *      https://www.google.com/get/noto/
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *			http://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -52,11 +52,11 @@ $radius-3: $radius-base * 4;
  */
 
 @font-face {
-	font-family: 'Noto Sans';
-	src: url('../fonts/NotoSansCJKjp-Regular-subset.eot'); /* IE9 Compat Modes */
-	src: url('../fonts/NotoSansCJKjp-Regular-subset.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-			 url('../fonts/NotoSansCJKjp-Regular-subset.woff') format('woff'), /* Modern Browsers */
-			 url('../fonts/NotoSansCJKjp-Regular-subset.ttf')	format('truetype'); /* Safari, Android, iOS */
+  font-family: 'Noto Sans';
+  src: url('../fonts/NotoSansCJKjp-Regular-subset.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/NotoSansCJKjp-Regular-subset.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/NotoSansCJKjp-Regular-subset.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/NotoSansCJKjp-Regular-subset.ttf')  format('truetype'); /* Safari, Android, iOS */
 }
 
 $notosans: 'Noto Sans',"メイリオ",Meiryo,'Jun34Pro',"Lucida Grande","segoe UI","ヒラギノ丸ゴ ProN W4","Hiragino Maru Gothic Pro",Verdana,Arial,sans-serif;

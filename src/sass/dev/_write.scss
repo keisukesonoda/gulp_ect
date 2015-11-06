@@ -1,10 +1,4 @@
 //-------------------------------------
-// word press theme name
-//-------------------------------------
-/* Theme Name:	*/
-/* Author:	*/
-
-//-------------------------------------
 // import files
 //-------------------------------------
 @import "reset";
@@ -14,10 +8,21 @@
 @import "mixin";
 @import "base";
 
+
+
+/*-------------------------------------
+	variables
+-------------------------------------*/
+
+
+
 /*-------------------------------------
 	General Purpose
 -------------------------------------*/
-
+select, button, input, textarea {
+	// border: 1px solid #818181;
+	background-color: transparent;
+}
 
 h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
@@ -42,6 +47,48 @@ h6 {
 	font-size: 100%;
 }
 
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+iframe, object, video, embed {
+	max-width: 100%;
+}
+
+.sp {
+	display: none !important;
+}
+
+.opac {
+	&:hover {
+		opacity: 0.7;
+	}
+}
+
+body {
+	// background-color: #fee;
+}
+
+
+
+/* --------------------
+	bxslider reset
+-------------------- */
+.main-visual .bx-wrapper .bx-viewport {
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	border: none;
+	left: 0;
+	background: transparent;
+}
+
+
+
+/* --------------------
+	parts
+-------------------- */
 
 
 
@@ -50,6 +97,10 @@ h6 {
 /*-------------------------------------
 	Characteristic
 -------------------------------------*/
+
+body {
+	// background-color: #fee;
+}
 
 .contents {
 	min-height: 500px;
@@ -104,3 +155,23 @@ h6 {
 	color: white;
 	background-color: black;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

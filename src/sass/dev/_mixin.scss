@@ -2,34 +2,34 @@
 // mixins
 // ------------------------
 @mixin whi($width, $height, $imageFile) {
-	width: $width;
-	height: $height;
-	background-image: url(../images/#{$imageFile});
+  width: $width;
+  height: $height;
+  background-image: url(../images/#{$imageFile});
 }
 
 @mixin wh($width, $height) {
-	width: $width;
-	height: $height;
+  width: $width;
+  height: $height;
 }
 
 
 @mixin spi($pt, $imageFile) {
-	padding-top: $pt;
-	background-image: url(../images/#{$imageFile});
+  padding-top: $pt;
+  background-image: url(../images/#{$imageFile});
 }
 
 @mixin sp($pt) {
-	padding-top: $pt;
+  padding-top: $pt;
 }
 
 
 @mixin ptr($top, $right){
-	top: $top;
-	right: $right;
+  top: $top;
+  right: $right;
 }
 
 
 @mixin indents($em) {
-	text-indent: -$em;
-	padding-left: $em;
+  text-indent: -$em;
+  padding-left: $em;
 }

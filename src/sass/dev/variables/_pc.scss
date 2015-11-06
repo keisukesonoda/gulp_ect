@@ -1,5 +1,5 @@
 /* -------------------------------------
-	PC org settinngs
+  PC org settinngs
 ------------------------------------- */
 
 
@@ -63,11 +63,11 @@ $font-size-p10: $font-size-base + 10px;
 .fsp10 { font-size: $font-size-p10; }
 
 // width
-.full	 { width: 100%; }
-.half	 { width: 50%; }
-.third	{ width: 33.3%; }
+.full   { width: 100%; }
+.half   { width: 50%; }
+.third  { width: 33.3%; }
 .quater { width: 25%; }
-.fifth	{ width: 20%; }
+.fifth  { width: 20%; }
 
 // float
 .fl { float: left; }
@@ -76,7 +76,7 @@ $font-size-p10: $font-size-base + 10px;
 
 
 
-//	Spacing Classes
+//  Spacing Classes
 //-------------------------------------
 // Spaces
 $space-base: 5px;
@@ -164,7 +164,7 @@ $space-10: $space-base * 10;
 .pb8 { padding-bottom: $space-8 !important; }
 .pb9 { padding-bottom: $space-9 !important; }
 .pb10 { padding-bottom: $space-10 !important; }
-.pbx { padding-bottom: $space-4	!important; }
+.pbx { padding-bottom: $space-4  !important; }
 .pln { padding-left: 0 !important; }
 .pls { padding-left: $space-base !important; }
 .pl2 { padding-left: $space-2 !important; }
@@ -198,7 +198,7 @@ $space-10: $space-base * 10;
 // container width
 // ----------------------
 $container-main: 940px;
-$container-sub1: 720px;
+$container-sub1: 1024px;
 $container-sub2: 980px;
 $container-sub3: 980px;
 $container-sub4: 980px;
@@ -207,13 +207,14 @@ $container-sub5: 980px;
 
 
 /* ----------------
-	text image
+  text image
 ---------------- */
 .ti {
-	display: block;
-	background-repeat: no-repeat;
-	background-position: left top;
-	overflow: hidden;
-	white-space: nowrap;
-	text-indent: 100%;
+  // display: inline-block;
+  display: block;
+  background-repeat: no-repeat;
+  background-position: left top;
+  overflow: hidden;
+  white-space: nowrap;
+  text-indent: 150%;
 }
