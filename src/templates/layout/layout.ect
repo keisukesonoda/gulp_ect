@@ -17,8 +17,8 @@
 	<link href="<%= PATH %>css/style.min.css" rel="stylesheet" media="screen and (min-width: 799px)">
 	<link href="<%= PATH %>css/sp.min.css" rel="stylesheet" media="screen and (max-width: 798px)">
 	<!--[if lt IE 9]>
-	<script src="<%= PATH %>js/html5shiv.js" type="text/javascript"></script>
-	<script src="<%= PATH %>js/selectivizr-min.js" type="text/javascript"></script>
+	<script src="<%= PATH %>js/ltIE8/html5shiv.js" type="text/javascript"></script>
+	<script src="<%= PATH %>js/ltIE8/selectivizr-min.js" type="text/javascript"></script>
 	<![endif]-->
 </head>
 <body class="<%= @class %>">
@@ -42,8 +42,9 @@
 			</div><!-- /container -->
 		</footer><!-- /footer -->
 	</div><!-- /wrapper -->
-<% for script in @init.loadJavascripts : %>
-	<script type="text/javascript" src="<%= PATH %>js/<%= script %>.js"></script>
-<% end %>
+
+	<script src="<%= PATH %>js/jquery-1.11.3.min.js" type="text/javascript"></script>
+	<script src="<%= PATH %>js/cat.min.js" type="text/javascript"></script>
+
 </body>
 </html>
