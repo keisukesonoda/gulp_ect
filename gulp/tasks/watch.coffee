@@ -6,7 +6,6 @@ gulp.task 'watch', ->
 	gulp.watch "#{config.path.src.coffee}/*.coffee", ['coffee']
 	# js copy
 	gulp.watch "#{config.path.src.js}/*.js", ['copy-js']
-	gulp.watch "#{config.dir.src}/libs/*.js", ['copy-jsLibs']
 	# image copy
 	gulp.watch [
 		"#{config.dir.src}/#{config.dir.temp}/content/#{config.dir.img}/*"

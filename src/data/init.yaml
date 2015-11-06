@@ -47,10 +47,6 @@ pages:
         class: fuga-2
 
 
-
-loadJavascripts:
-  - jquery-1.11.3.min
+concatScripts:
   - jquery.transit
-  - script.min
-
-
+  - script
