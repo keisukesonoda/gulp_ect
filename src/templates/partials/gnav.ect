@@ -2,20 +2,18 @@
 <nav class="gnav">
 	<h2 class="tr">Grobal Navigation</h2>
 	<ul class="menu-items">
-	<% for hierarchy, details of @init.pages : %>
-		<% for detail in details : %>
-			<% for file in detail.files : %>
+	<% for page in @init.pages : %>
+		<% for file in page.files : %>
 <%
 FILE = if file.name isnt 'index' then file.name+'.html';
-DIR  = if detail.dir then detail.dir+'/' else ''
+DIR  = if page.dir then page.dir+'/'
 %>
-				<li class="menu-item">
-					<a href="<%= ROOT %><%= DIR %><%= FILE %>">
-						<%= file.title %>
-					</a>
-				</li>
-			<% end %><!-- /endfor files -->
-		<% end %><!-- /endfor details -->
+			<li class="menu-item">
+				<a href="<%= ROOT %><%= DIR %><%= FILE %>">
+					<%= file.title %>
+				</a>
+			</li>
+		<% end %><!-- /endfor files -->
 	<% end %><!-- /endfor @init.pages -->
 	</ul><!-- /menu-items -->
 </nav><!-- /gnav -->

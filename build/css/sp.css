@@ -1,6 +1,4 @@
 @charset "UTF-8";
-/* Theme Name:  */
-/* Author:  */
 /*-------------------------------------
 reset css
 -------------------------------------*/
@@ -62,13 +60,13 @@ table {
 
 /*
  * Copyright (C) 2014 Root-013
- *			https://www.google.com/get/noto/
+ *      https://www.google.com/get/noto/
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *			http://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -84,7 +82,7 @@ table {
   /* Safari, Android, iOS */
 }
 /* -------------------------------------
-	Smart Phone org settinngs
+  Smart Phone org settinngs
 ------------------------------------- */
 .fsm1 {
   font-size: 1.1rem;
@@ -548,10 +546,10 @@ table {
 }
 
 /* ----------------
-	text image
+  text image
 ---------------- */
 .ti {
-  display: block;
+  display: inline-block;
   height: 0;
   background-repeat: no-repeat;
   background-position: center center;
@@ -660,19 +658,19 @@ table {
 }
 
 .ca {
-  color: #000000 !important;
+  color: #363029 !important;
 }
 
 .cb {
-  color: #000000 !important;
+  color: #8d8157 !important;
 }
 
 .cc {
-  color: #000000 !important;
+  color: #eadb81 !important;
 }
 
 .cd {
-  color: #000000 !important;
+  color: #b99d02 !important;
 }
 
 .ce {
@@ -708,19 +706,19 @@ table {
 }
 
 .ba {
-  background-color: #000000 !important;
+  background-color: #363029 !important;
 }
 
 .bb {
-  background-color: #000000 !important;
+  background-color: #8d8157 !important;
 }
 
 .bc {
-  background-color: #000000 !important;
+  background-color: #eadb81 !important;
 }
 
 .bd {
-  background-color: #000000 !important;
+  background-color: #b99d02 !important;
 }
 
 .be {
@@ -819,24 +817,74 @@ table {
   vertical-align: bottom;
 }
 
-.light {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
-  opacity: 0.8;
+/* positions
+-------------------- */
+.pos, .pos-center, .pos-vertical-center, .pos-horizontal-center, .pos-override-center {
+  position: absolute;
+  margin: auto;
+}
+
+.pos-center {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.pos-vertical-center {
+  top: 0;
+  bottom: 0;
+}
+
+.pos-horizontal-center {
+  left: 0;
+  right: 0;
+}
+
+.pos-override-center {
+  top: -50%;
+  bottom: -50%;
+  left: -50%;
+  right: -50%;
 }
 
 /*-------------------------------------
  Base Settings
 -------------------------------------*/
 html {
-  font-size: 62.5%;
+  font-size: 124.8%;
 }
 
+@media screen and (max-width: 667px) {
+  html {
+    font-size: 130.065%;
+  }
+}
+@media screen and (max-width: 568px) {
+  html {
+    font-size: 110.76%;
+  }
+}
+@media screen and (max-width: 414px) {
+  html {
+    font-size: 80.73%;
+  }
+}
+@media screen and (max-width: 375px) {
+  html {
+    font-size: 73.125%;
+  }
+}
+@media screen and (max-width: 320px) {
+  html {
+    font-size: 62.5%;
+  }
+}
 body {
-  color: #000000;
+  color: #363029;
   font-size: 1.2rem;
-  font-family: "メイリオ", Meiryo, "Jun34Pro", "Lucida Grande", "segoe UI", "ヒラギノ丸ゴ ProN W4", "Hiragino Maru Gothic Pro", Verdana, Arial, sans-serif;
-  line-height: 1.3;
-  letter-spacing: 1px;
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", sans-serif;
+  line-height: 1.5;
   min-width: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -903,8 +951,68 @@ img {
 }
 
 /*-------------------------------------
-  General Purpose
+	variables
 -------------------------------------*/
 /*-------------------------------------
-  Characteristic
+  General Purpose
 -------------------------------------*/
+select, button, input, textarea {
+  background-color: transparent;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 200%;
+}
+
+h2 {
+  font-size: 180%;
+}
+
+h3 {
+  font-size: 160%;
+}
+
+h4 {
+  font-size: 140%;
+}
+
+h5 {
+  font-size: 120%;
+}
+
+h6 {
+  font-size: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+iframe, object, video, embed {
+  max-width: 100%;
+}
+
+.pc {
+  display: none !important;
+}
+
+/* --------------------
+	bxslider reset
+-------------------- */
+.main-visual .bx-wrapper .bx-viewport {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: none;
+  left: 0;
+  background: transparent;
+}
+
+/* --------------------
+	parts
+-------------------- */

@@ -1,56 +1,119 @@
 $(document).on({
 	ready: ->
-		if !$.support.transition
-		# transitionに対応していなければanimate
-			$.fn.transition = $.fn.animate;
-
-		# easingの登録
-		$.extend(jQuery.easing, {
-			easeOutBack: (x, t, b, c, d, s) ->
-				if s is undefined
-					s = 1.70158
-				return c*((t=t/d-1)*t*((s+1)*t + s) + 1) + b
-			easeInOutBack: (x, t, b, c, d, s) ->
-				if s is undefined
-					s = 1.70158;
-				if (t /= d / 2) < 1
-					return c / 2 * (t * t * (((s *= (1.525)) + 1) * t - s)) + b
-				return c / 2 * ((t -= 2) * t * (((s *= (1.525)) + 1) * t + s) + 2) + b
-			easeInOutCubic: (x, t, b, c, d) ->
-				if (t /= d / 2) < 1
-					return c / 2 * t * t * t + b
-				return c / 2 * ((t -= 2) * t * t + 2) + b
-		})
-
-		# ブラウザによってscroll対象が'body'か'html'か判別
-		isHtmlScrollable = do ->
-			html = $('html')
-			top = html.scrollTop()
-			elm = $('<div/>').height(10000).prependTo('body')
-			html.scrollTop(10000)
-			rs = !!html.scrollTop()
-			html.scrollTop(top);
-			elm.remove()
-			return rs
-		window.scrTgt = if isHtmlScrollable then 'html' else 'body'
-
-		console.log 'ready'
-
-
+		# init functions
+		initialize()
 		# basic functions
-		basic.notSaveImages()
-		basic.scrollSection()
-		basic.scrollTop()
+		bases()
+		# ready functions
+		spl.ready()
 })
-
 
 $(window).on({
 	load: ->
-		console.log 'load'
+		spl.load()
 })
 
 
+initialize = ->
+	init.changeTransitTarget()
+	init.registEasing()
+	init.getScrollTarget()
+	init.getUseragent()
 
+
+bases = ->
+	basic.notSaveImages()
+	basic.scrollSection()
+	# basic.scrollTop()
+
+
+spl = {}
+spl.ready = ->
+	console.log 'ready'
+
+spl.load = ->
+	console.log 'load'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+init = {}
+init.changeTransitTarget = ->
+	# transitionに対応していなければanimate
+	if !$.support.transition
+		$.fn.transition = $.fn.animate;
+
+
+init.registEasing = ->
+	# easingの登録
+	$.extend(jQuery.easing, {
+		easeOutBack: (x, t, b, c, d, s) ->
+			if s is undefined
+				s = 1.70158
+			return c*((t=t/d-1)*t*((s+1)*t + s) + 1) + b
+		easeInOutBack: (x, t, b, c, d, s) ->
+			if s is undefined
+				s = 1.70158;
+			if (t /= d / 2) < 1
+				return c / 2 * (t * t * (((s *= (1.525)) + 1) * t - s)) + b
+			return c / 2 * ((t -= 2) * t * (((s *= (1.525)) + 1) * t + s) + 2) + b
+		easeInOutCubic: (x, t, b, c, d) ->
+			if (t /= d / 2) < 1
+				return c / 2 * t * t * t + b
+			return c / 2 * ((t -= 2) * t * t + 2) + b
+	})
+
+
+init.getScrollTarget = ->
+	# ブラウザによってscroll対象が'body'か'html'か判別
+	isHtmlScrollable = do ->
+		html = $('html')
+		top = html.scrollTop()
+		elm = $('<div/>').height(10000).prependTo('body')
+		html.scrollTop(10000)
+		rs = !!html.scrollTop()
+		html.scrollTop(top);
+		elm.remove()
+		return rs
+	window.scrTgt = if isHtmlScrollable then 'html' else 'body'
+
+
+init.getUseragent = ->
+	window.UA = do ->
+		ua = window.navigator.userAgent.toLowerCase()
+		return {
+			TAB : ua.indexOf('windows') isnt -1 and ua.indexOf('touch') isnt -1 or
+						ua.indexOf('android') isnt -1 and ua.indexOf('mobile') is -1 or
+						ua.indexOf('firefox') isnt -1 and ua.indexOf('tablet') isnt -1 or
+						ua.indexOf('ipad') isnt -1 or
+						ua.indexOf('kindle') isnt -1 or
+						ua.indexOf('silk') isnt -1 or
+						ua.indexOf('playbook') isnt -1
+			SP  : ua.indexOf('windows') isnt -1 and ua.indexOf('phone') isnt -1 or
+						ua.indexOf('android') isnt -1 and ua.indexOf('mobile') isnt -1 or
+						ua.indexOf('firefox') isnt -1 and ua.indexOf('mobile') isnt -1 or
+						ua.indexOf('iphone') isnt -1 or
+						ua.indexOf('ipod') isnt -1 or
+						ua.indexOf('blackberry') isnt -1 or
+						ua.indexOf('bb') isnt -1
+			AD  : ua.indexOf('android') isnt -1
+			ltIE8:typeof window.addEventListener is 'undefined' and typeof document.getElementsByClassName is 'undefined'
+		}
 
 
 
