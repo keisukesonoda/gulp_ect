@@ -47,6 +47,8 @@ pages:
         class: fuga-2
 
 
+concatName: bundle
+
 concatScripts:
   - jquery.transit
   - script

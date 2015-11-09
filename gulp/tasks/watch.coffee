@@ -1,12 +1,17 @@
 config = require '../config'
 gulp   = require 'gulp'
 
+###
+ ファイル監視
+ defaultタスクにて指定しているため、
+ gulpコマンドで同時に監視を開始
+###
 gulp.task 'watch', ->
 	# cofee
 	gulp.watch "#{config.path.src.coffee}/*.coffee", ['coffee']
-	# js copy
+	# js
 	gulp.watch "#{config.path.src.js}/*.js", ['copy-js']
-	# image copy
+	# images
 	gulp.watch [
 		"#{config.dir.src}/#{config.dir.temp}/content/#{config.dir.img}/*"
 		"#{config.dir.src}/#{config.dir.temp}/content/**/#{config.dir.img}/*"
