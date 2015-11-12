@@ -1,3 +1,18 @@
+settings:
+  javascript:
+    useMinify: true
+    concat:
+      # 連結するjsファイル
+      files:
+        - jquery.transit
+        - script
+      # 連結後のjsファイル名
+      name: bundle
+  css:
+    useMinify: true
+
+
+
 metas:
   global:
     siteTitle: 'gulp ect sample'
@@ -47,8 +62,14 @@ pages:
         class: fuga-2
 
 
-concatName: bundle
 
-concatScripts:
-  - jquery.transit
-  - script
+
+
+
+
+
+
+
+
+
+

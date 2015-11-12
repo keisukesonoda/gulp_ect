@@ -1,21 +1,22 @@
-config    = require '../config'
 gulp      = require 'gulp'
+config    = require '../config'
 browser   = require 'browser-sync'
 ect       = require 'gulp-ect-simple'
-YAML      = require 'js-yaml'
-fs        = require 'fs'
-data_init = YAML.safeLoad fs.readFileSync "#{config.path.src.origin}/data/init.yaml", 'utf8'
 
-
+# buildで動かした場合はtaskに'build'が入る
+minimist  = require 'minimist'
+args      = minimist(process.argv.slice(2))
+task      = args['_'][0]
 
 ###
  ectファイルをhtmlへコンパイル
  1 init.yamlで指定したpages配列をまわしてディレクトリ階層を取得
- 2 htmlへ渡すパラメータの指定
- 3 ディレクトリ内のファイルを取得してdest内の同階層にhtmlを生成
 ###
 gulp.task 'ect', ->
-	for page in data_init.pages
+	# dest先を変数化
+	destTo = if task is 'build' then "#{config.path.dest.root}" else "#{config.path.dev.root}"
+
+	for page in config.init.pages
 		# 1 page.dirがnullの場合はroot
 		directory = if page.dir isnt null then page.dir+'/' else ''
 		for file in page.files
@@ -25,13 +26,16 @@ gulp.task 'ect', ->
 							root: "#{config.path.src.temp}"
 							ext:  '.ect'
 						data:
-							# パラメータはinit.yamlで指定
 							name: file.name
 							title: file.title
 							class: file.class
 							hierarchy: if ! directory then 'root'
-							init: data_init
+							init: config.init
+							task: if task is 'build' then 'dest' else 'dev'
 					})
-					# html生成
-					.pipe gulp.dest "#{config.path.dest.view}/"+directory
+					.pipe gulp.dest destTo+'/'+directory
 					.pipe browser.reload({ stream: true })
+
+
+
+

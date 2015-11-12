@@ -1,8 +1,8 @@
-config = require '../config'
 gulp   = require 'gulp'
+config = require '../config'
 
 ###
- ファイル監視
+ @ファイル監視
  defaultタスクにて指定しているため、
  gulpコマンドで同時に監視を開始
 ###
@@ -13,8 +13,8 @@ gulp.task 'watch', ->
 	gulp.watch "#{config.path.src.js}/*.js", ['copy-js']
 	# images
 	gulp.watch [
-		"#{config.dir.src}/#{config.dir.temp}/content/#{config.dir.img}/*"
-		"#{config.dir.src}/#{config.dir.temp}/content/**/#{config.dir.img}/*"
+		"#{config.path.src.content}/#{config.dir.img}/*"
+		"#{config.path.src.content}/**/#{config.dir.img}/*"
 	], ['copy-images']
 	# sass
 	gulp.watch [
@@ -26,3 +26,7 @@ gulp.task 'watch', ->
 		"#{config.path.src.temp}/**/*.ect"
 		"#{config.path.src.temp}/**/**/*.ect"
 	], ['ect']
+
+
+
+
