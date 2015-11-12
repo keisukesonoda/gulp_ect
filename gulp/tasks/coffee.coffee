@@ -7,42 +7,36 @@ concat    = require 'gulp-concat'
 gutil     = require 'gulp-util'
 uglify    = require 'gulp-uglify'
 rename    = require 'gulp-rename'
-YAML      = require 'js-yaml'
-fs        = require 'fs'
-data_init = YAML.safeLoad fs.readFileSync "#{config.path.src.origin}/data/init.yaml", 'utf8'
-
-
-
 
 ###
-	1 .coffeeを.jsにコンパイル
-	2 init.yamlで指定したconcat元ファイルを配列にまとめる
+	1 init.yamlで指定したconcat元ファイルを配列にまとめる
+	2 .coffeeを.jsにコンパイル
 	3 指定したファイルをconcatしてminify化する
+	4 生成したminifyファイル
 ###
-gulp.task 'coffee', ->
-	# 1 .coffeeから.jsを生成
+
+# 1 init.yamlで指定したconcatファイルを配列化
+concatFiles = []
+for file in config.init.settings.javascript.concat.files
+	concatFiles.push "#{config.path.src.js}/"+file+'.js'
+
+# 2 .coffeeから.jsを生成
+gulp.task 'coffee-compile', ->
 	gulp.src ["#{config.path.src.coffee}/*.coffee"]
 			.pipe plumber()
 			.pipe coffee({ bare: true }).on('error', gutil.log)
 			.pipe gulp.dest "#{config.path.src.js}"
 
-	# 2 init.yamlで指定したconcatファイルを配列化
-	files = []
-	for file in data_init.concatScripts
-		files.push "#{config.dir.src}/js/"+file+'.js'
-
-	# 3 concat & minify処理
-	gulp.src files
+# 3 concat & minify処理
+gulp.task 'concat_minify', ['coffee-compile'], ->
+	gulp.src concatFiles
 			.pipe plumber()
-			.pipe concat data_init.concatName+'.js'
+			.pipe concat config.init.settings.javascript.concat.name+'.js'
 			.pipe gulp.dest "#{config.path.src.js}"
 			.pipe uglify()
 			.pipe rename({ extname: '.min.js' })
-			.pipe gulp.dest "#{config.path.dest.js}"
+			.pipe gulp.dest "#{config.path.dev.js}"
 			.pipe browser.reload({ stream: true })
 
-
-
-
-
+gulp.task 'coffee', ['concat_minify']
 

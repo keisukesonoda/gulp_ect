@@ -7,28 +7,12 @@ autoprefixer = require 'gulp-autoprefixer'
 rename       = require 'gulp-rename'
 browser      = require 'browser-sync'
 
-
-
-
-###
- compass起動
-###
-gulp.task 'compass', ->
-	gulp.src ["#{config.path.src.sass}/**/*.scss", "#{config.path.src.sass}/*.scss"]
-			.pipe compass({
-				config_file: 'config.rb'
-				sass: "#{config.path.src.sass}"
-				css: "#{config.path.dest.css}"
-			})
-
-###
- sassファイルのコンパイル
-###
+### @sassファイルのコンパイル###
 gulp.task 'sass', ->
 	sass("#{config.path.src.sass}/", ({ style: 'expanded', compass: true }))
 			.on 'error', (err)-> console.error 'Error!', err.message
-			.pipe gulp.dest "#{config.path.dest.css}"
+			.pipe gulp.dest "#{config.path.dev.css}"
 			.pipe cssmin()
 			.pipe rename({ extname: '.min.css' })
-			.pipe gulp.dest "#{config.path.dest.css}"
+			.pipe gulp.dest "#{config.path.dev.css}"
 			.pipe browser.reload({ stream: true })
