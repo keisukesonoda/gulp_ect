@@ -1,13 +1,26 @@
 settings:
+  directory:
+    names: # ディレクトリ名設定
+      application: app
+      source:      src
+      develop:     develop
+      destination: product
+      sass:        sass
+      css:         css
+      coffee:      coffee
+      js:          js
+      img:         images
+      temp:        templates
+      content:     content
   javascript:
     useMinify: true
-    concat:
-      # 連結するjsファイル
-      files:
+    original: # 独自ファイル設定
+      files: # dest連結後に削除するオリジナルファイル
         - jquery.transit
         - script
-      # 連結後のjsファイル名
-      name: bundle
+      name: vendor # dest連結後のファイル名
+    libraries: # bowerで取得したライブラリ設定
+      name: libs # dest連結後のファイル名
   css:
     useMinify: true
 

@@ -1,5 +1,8 @@
 node_modules/
+bower_components/
+
+app/develop
+app/product
 
 .DS_Store
-
 .sass-cache/

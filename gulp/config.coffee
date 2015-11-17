@@ -2,20 +2,25 @@ YAML      = require 'js-yaml'
 fs        = require 'fs'
 data_init = YAML.safeLoad fs.readFileSync "app/src/data/init.yaml", 'utf8'
 
+
 dir =
-	app:     'app'
-	src:     'src'
-	dev:     'develop'
-	dest:    'product'
-	sass:    'sass'
-	css:     'css'
-	coffee:  'coffee'
-	js:      'js'
-	img:     'images'
-	temp:    'templates'
-	content: 'content'
+	app:     data_init.settings.directory.names.application
+	src:     data_init.settings.directory.names.source
+	dev:     data_init.settings.directory.names.develop
+	dest:    data_init.settings.directory.names.destination
+	sass:    data_init.settings.directory.names.sass
+	css:     data_init.settings.directory.names.css
+	coffee:  data_init.settings.directory.names.coffee
+	js:      data_init.settings.directory.names.js
+	img:     data_init.settings.directory.names.img
+	temp:    data_init.settings.directory.names.temp
+	content: data_init.settings.directory.names.content
+
 
 path = 
+	project:
+		root:   ''
+	bowerDir:  dir.app+'/'+dir.dev+'/'+'bower_components'
 	src:
 		root:    dir.app+'/'+dir.src
 		sass:    dir.app+'/'+dir.src+'/'+dir.sass
@@ -37,7 +42,12 @@ path =
 		img:     dir.app+'/'+dir.dest+'/'+dir.img
 
 
+params = 
+	reloadDelay: 400
+
+
 module.exports = 
 	dir: dir
 	path: path
 	init: data_init
+	params: params
