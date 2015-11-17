@@ -1,37 +1,37 @@
 $(document).on({
 	ready: ->
 		# init functions
-		initialize()
+		my_initialization()
 		# basic functions
-		bases()
+		my_basics()
 		# ready functions
-		spl.ready()
+		sample.ready()
 })
 
 $(window).on({
 	load: ->
-		spl.load()
+		sample.load()
 })
 
 
-initialize = ->
-	init.changeTransitTarget()
-	init.registEasing()
-	init.getScrollTarget()
-	init.getUseragent()
+my_initialization = ->
+	my_init.changeTransitTarget()
+	my_init.registEasing()
+	my_init.getScrollTarget()
+	my_init.getUseragent()
 
 
-bases = ->
-	basic.notSaveImages()
-	basic.scrollSection()
+my_basics = ->
+	my_base.notSaveImages()
+	my_base.scrollSection()
 	# basic.scrollTop()
 
 
-spl = {}
-spl.ready = ->
+sample = {}
+sample.ready = ->
 	console.log 'ready'
 
-spl.load = ->
+sample.load = ->
 	console.log 'load'
 
 
@@ -52,14 +52,14 @@ spl.load = ->
 
 
 
-init = {}
-init.changeTransitTarget = ->
+my_init = {}
+my_init.changeTransitTarget = ->
 	# transitionに対応していなければanimate
 	if !$.support.transition
 		$.fn.transition = $.fn.animate;
 
 
-init.registEasing = ->
+my_init.registEasing = ->
 	# easingの登録
 	$.extend(jQuery.easing, {
 		easeOutBack: (x, t, b, c, d, s) ->
@@ -79,7 +79,7 @@ init.registEasing = ->
 	})
 
 
-init.getScrollTarget = ->
+my_init.getScrollTarget = ->
 	# ブラウザによってscroll対象が'body'か'html'か判別
 	isHtmlScrollable = do ->
 		html = $('html')
@@ -93,7 +93,7 @@ init.getScrollTarget = ->
 	window.scrTgt = if isHtmlScrollable then 'html' else 'body'
 
 
-init.getUseragent = ->
+my_init.getUseragent = ->
 	window.UA = do ->
 		ua = window.navigator.userAgent.toLowerCase()
 		return {
@@ -123,8 +123,8 @@ init.getUseragent = ->
 
 
 
-basic = {}
-basic.scrollSection = ->
+my_base = {}
+my_base.scrollSection = ->
 	trg = $('.js-scrKey')
 	tgt = $('.js-scrTgt')
 
@@ -136,7 +136,7 @@ basic.scrollSection = ->
 	)
 
 
-basic.notSaveImages = ->
+my_base.notSaveImages = ->
 	tgt = $('.js-save')
 	# image controls off
 	tgt.on({
@@ -152,7 +152,7 @@ basic.notSaveImages = ->
 	})
 
 
-basic.scrollTop = ->
+my_base.scrollTop = ->
 	scrollToTop = {
 
 		settings:

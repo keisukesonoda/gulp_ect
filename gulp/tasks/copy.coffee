@@ -4,9 +4,7 @@ browser   = require 'browser-sync'
 
 
 ###
-srcからdevへjsファイルのコピー
-  src/js内の.jsファイルに変更が加わった際、
-  ディレクトリ構成を保ったままdev/jsにコピー
+	@js src/js内の.jsファイルに変更が加わった際、ディレクトリ構成を保ったままdev/jsにコピー
 ###
 gulp.task 'copy-js', (cb) ->
 	gulp.src [
@@ -18,9 +16,7 @@ gulp.task 'copy-js', (cb) ->
 
 
 ###
-srcからdevへ画像ファイルのコピー
-  init.yamlで指定されたページディレクトリ内のimgファイルを
-  dest内の同階層ディレクトリへ
+  @css init.yamlで指定されたページディレクトリ内のimgファイルをdest内の同階層ディレクトリへ
 ###
 gulp.task 'copy-images', ->
 	for page in config.init.pages

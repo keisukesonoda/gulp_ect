@@ -1,0 +1,24 @@
+{
+  "name": "gulp_ect",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "keisukesonoda <keisuke.sonoda@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/keisukesonoda/gulp_ect",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bxslider-4": "bxSlider#~4.2.5"
+  },
+  "dependencies": {
+    "jquery": "1"
+  }
+}

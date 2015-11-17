@@ -1,50 +1,50 @@
-var bases, basic, init, initialize, spl;
+var my_base, my_basics, my_init, my_initialization, sample;
 
 $(document).on({
   ready: function() {
-    initialize();
-    bases();
-    return spl.ready();
+    my_initialization();
+    my_basics();
+    return sample.ready();
   }
 });
 
 $(window).on({
   load: function() {
-    return spl.load();
+    return sample.load();
   }
 });
 
-initialize = function() {
-  init.changeTransitTarget();
-  init.registEasing();
-  init.getScrollTarget();
-  return init.getUseragent();
+my_initialization = function() {
+  my_init.changeTransitTarget();
+  my_init.registEasing();
+  my_init.getScrollTarget();
+  return my_init.getUseragent();
 };
 
-bases = function() {
-  basic.notSaveImages();
-  return basic.scrollSection();
+my_basics = function() {
+  my_base.notSaveImages();
+  return my_base.scrollSection();
 };
 
-spl = {};
+sample = {};
 
-spl.ready = function() {
+sample.ready = function() {
   return console.log('ready');
 };
 
-spl.load = function() {
+sample.load = function() {
   return console.log('load');
 };
 
-init = {};
+my_init = {};
 
-init.changeTransitTarget = function() {
+my_init.changeTransitTarget = function() {
   if (!$.support.transition) {
     return $.fn.transition = $.fn.animate;
   }
 };
 
-init.registEasing = function() {
+my_init.registEasing = function() {
   return $.extend(jQuery.easing, {
     easeOutBack: function(x, t, b, c, d, s) {
       if (s === void 0) {
@@ -70,7 +70,7 @@ init.registEasing = function() {
   });
 };
 
-init.getScrollTarget = function() {
+my_init.getScrollTarget = function() {
   var isHtmlScrollable;
   isHtmlScrollable = (function() {
     var elm, html, rs, top;
@@ -86,7 +86,7 @@ init.getScrollTarget = function() {
   return window.scrTgt = isHtmlScrollable ? 'html' : 'body';
 };
 
-init.getUseragent = function() {
+my_init.getUseragent = function() {
   return window.UA = (function() {
     var ua;
     ua = window.navigator.userAgent.toLowerCase();
@@ -99,9 +99,9 @@ init.getUseragent = function() {
   })();
 };
 
-basic = {};
+my_base = {};
 
-basic.scrollSection = function() {
+my_base.scrollSection = function() {
   var tgt, trg;
   trg = $('.js-scrKey');
   tgt = $('.js-scrTgt');
@@ -116,7 +116,7 @@ basic.scrollSection = function() {
   });
 };
 
-basic.notSaveImages = function() {
+my_base.notSaveImages = function() {
   var tgt;
   tgt = $('.js-save');
   return tgt.on({
@@ -135,7 +135,7 @@ basic.notSaveImages = function() {
   });
 };
 
-basic.scrollTop = function() {
+my_base.scrollTop = function() {
   var scrollToTop;
   scrollToTop = {
     settings: {

@@ -1,9 +1,7 @@
 <%
-ROOT   = if @class isnt 'home' then '../';
-CSSMIN = if @init.settings.css.useMinify then 'min.' else '';
-JSMIN  = if @init.settings.javascript.useMinify then 'min.' else '';
+cssMin = if @task is 'build' and @init.settings.css.useMinify then '.min' else '';
+jsMin = if @init.settings.javascript.useMinify then '.min';
 %>
-
 <!doctype html>
 <html lang="ja">
 <head>
@@ -13,17 +11,26 @@ JSMIN  = if @init.settings.javascript.useMinify then 'min.' else '';
 <% for name, cnt of @init.metas.defaults : %>
 	<meta name="<%= name %>" content="<%= cnt %>">
 <% end %>
+	<!-- facebook -->
 <% for name, cnt of @init.metas.ogs : %>
 	<meta name="<%= name %>" content="<%= cnt %>">
 <% end %>
+	<!-- twitter -->
 <% for name, cnt of @init.metas.twitter : %>
 	<meta name="<%= name %>" content="<%= cnt %>">
 <% end %>
-	<link href="<%= ROOT %>css/style.<%= CSSMIN %>css" rel="stylesheet" media="screen and (min-width: 799px)">
-	<link href="<%= ROOT %>css/sp.<%= CSSMIN %>css" rel="stylesheet" media="screen and (max-width: 798px)">
+	<!-- libs css -->
+	<!-- build:css_libs <%= @ROOT %>css/libs<%= cssMin %>.css -->
+	<!-- bower:css -->
+	<!-- endinject -->
+	<!-- endbuild -->
+	<!-- original css -->
+	<link href="<%= @ROOT %>css/style<%= cssMin %>.css" rel="stylesheet" media="screen and (min-width: 799px)">
+	<link href="<%= @ROOT %>css/sp<%= cssMin %>.css" rel="stylesheet" media="screen and (max-width: 798px)">
 	<!--[if lt IE 9]>
-	<script src="<%= ROOT %>js/ltIE8/html5shiv.js" type="text/javascript"></script>
-	<script src="<%= ROOT %>js/ltIE8/selectivizr-min.js" type="text/javascript"></script>
+	<link href="<%= @ROOT %>css/style.css" rel="stylesheet">
+	<script src="<%= @ROOT %>js/ltIE8/html5shiv.js" type="text/javascript"></script>
+	<script src="<%= @ROOT %>js/ltIE8/selectivizr-min.js" type="text/javascript"></script>
 	<![endif]-->
 </head>
 <body class="<%= @class %>">
@@ -34,11 +41,13 @@ JSMIN  = if @init.settings.javascript.useMinify then 'min.' else '';
 				<p class="mt2"><%= @init.metas.defaults.description %></p>
 				<% include 'partials/gnav.ect' %>
 				<% include 'partials/breadcrumb-list.ect' %>
+
 			</div><!-- /container -->
 		</header><!-- /header -->
 
 		<div class="contents">
 			<% content %>
+
 		</div><!-- /contents -->
 
 		<footer id="footer" class="footer">
@@ -47,9 +56,15 @@ JSMIN  = if @init.settings.javascript.useMinify then 'min.' else '';
 			</div><!-- /container -->
 		</footer><!-- /footer -->
 	</div><!-- /wrapper -->
-
-	<script src="<%= ROOT %>js/jquery-1.11.3.min.js" type="text/javascript"></script>
-	<script src="<%= ROOT %>js/bundle.<%= JSMIN %>js" type="text/javascript"></script>
-
+	<!-- libs js -->
+	<!-- build:js_libs <%= @ROOT %>js/libs<%= jsMin %>.js -->
+	<!-- bower:js -->
+	<!-- endinject -->
+	<!-- endbuild -->
+	<!-- original js -->
+	<!-- build:js_vendor <%= @ROOT %>js/<%= @init.settings.javascript.original.name; %><%= jsMin %>.js -->
+	<!-- app:js -->
+	<!-- endinject -->
+	<!-- endbuild -->
 </body>
 </html>
