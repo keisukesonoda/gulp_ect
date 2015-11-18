@@ -19,61 +19,57 @@ INSTALLボタンをクリックし、手順に沿ってインストール
 
 コマンドラインから
 ``` console
-$ node -v
+node -v
 ```
 nodeのバージョンが表示されればインストールは完了
 
 ### gulp本体
 コマンドラインから
 ```console
-$ sudo npm install -g gulp
+sudo npm install -g gulp
 ```
 
 ### gulper
 [gulper](http://blog.anatoo.jp/entry/2015/02/01/155545)を使用すると、gulpfile保存時に自動的にgulpを再起動してくれるので楽チンです
 ```console
-$ sudo npm install -g gulper
+sudo npm install -g gulper
 ```
 
 インストール後、
 ```console
-$ gulp <task-name>
+gulp {task-name}
 ```
 だったものを
 ```console
-$ gulper <task-name>
+gulper {task-name}
 ```
 とコマンド入力を少し変更するだけです。
-
-
-### coffeeも必要かも
 
 
 ## 概要
 
 ### ディレクトリ構成
 
-- gulp_ect
-    - app
-      + develop # 開発
-      + product # 納品
-      + src # ソース
-    - bower_components
-      + ※省略
-    - gulp
-      - tasks # タスク毎にファイルを分割
-        * browser.coffee
-        * build.coffee
-        * coffee.coffee
-        * copy.coffee
-        * default.coffee
-        * ect.coffee
-        * sass.coffee
-        * watch.coffee
-      * config.coffee
-    - node_modules
-      + ※省略
-
+gulp_ect  
+　├app  
+　│　├develop  
+　│　├product  
+　│　└src  
+　├bower_components  
+　│　└※省略  
+　├gulp  
+　│　├config.coffee  
+　│　└tasks # タスク毎にファイルを分割  
+　│　　browser.coffee  
+　│　　build.coffee  
+　│　　coffee.coffee  
+　│　　copy.coffee  
+　│　　default.coffee  
+　│　　ect.coffee  
+　│　　sass.coffee  
+　│　　watch.coffee  
+　└node_modules  
+　　└※省略  
 
 
 
