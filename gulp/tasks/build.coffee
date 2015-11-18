@@ -136,7 +136,7 @@ gulp.task 'build-usemin-js', ['build-inject'], ->
 					gulp.src "#{config.path.dest.root}/"+directory+file.name+'.html'
 							.pipe usemin()
 							.pipe gulp.dest "#{config.path.dest.root}/"+directory
-	, config.params.reloadDelay*2
+	, config.params.reloadDelay*2.5
 
 
 
