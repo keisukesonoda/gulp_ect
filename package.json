@@ -1,7 +1,7 @@
 {
   "name": "gulp_ect",
   "version": "1.1.0",
-  "description": "",
+  "description": "タスクランナー【gulp】とテンプレートエンジン【ect】を使い、動的に複数のhtmlファイルを吐き出します。",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -27,6 +27,7 @@
     "gulp-usemin": "^0.3.15",
     "gulp-util": "^3.0.5",
     "js-yaml": "^3.3.1",
-    "main-bower-files": "^2.9.0"
+    "main-bower-files": "^2.9.0",
+    "require-dir": "^0.3.0"
   }
 }
