@@ -135,7 +135,13 @@ gulp_ect
   │       └── templates
   │           ├── content
   │           │   ├── hoge
+  │           │   │   ├── hoge.ect
+  │           │   │   ├── index.ect
+  │           │   │   └── images
   │           │   ├── fuga
+  │           │   │   ├── fuga.ect
+  │           │   │   ├── index.ect
+  │           │   │   └── images
   │           │   ├── images
   │           │   └── index.ect
   │           ├── layout
