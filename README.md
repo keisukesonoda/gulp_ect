@@ -1,81 +1,165 @@
 # gulp ect SAMPLE
 
-アップデートしました。
+タスクランナー【gulp】とテンプレートエンジン【ect】を使い、動的に複数のhtmlファイルを吐き出します。
+
+
+## アップデートしました。
+
+### ver.1.1.0
 
 * gulpタスクの分離
 
-* 開発用ディレクトリと納品用ディレクトリを分離
+* 開発ディレクトリと納品ディレクトリの分離
 
 * bower導入
 
 
 ## 下準備
-gulpを動かすために必要（便利）なツールをインストール
+
+本パッケージを動かすために必要（便利）なツールをインストールします。
 
 ### node.js
-<a href="https://nodejs.org/" target="blank">node.js</a>
 
-INSTALLボタンをクリックし、手順に沿ってインストール
+[node.js](https://nodejs.org/)にて「INSTALL」ボタンをクリックし、手順に沿ってインストールしてください。
 
-コマンドラインから
 ``` console
 node -v
 ```
-nodeのバージョンが表示されればインストールは完了
+nodeのバージョンが表示されればインストールは完了しています。
 
 ### gulp本体
-コマンドラインから
+
 ```console
 sudo npm install -g gulp
 ```
 
 ### gulper
-[gulper](http://blog.anatoo.jp/entry/2015/02/01/155545)を使用すると、gulpfile保存時に自動的にgulpを再起動してくれるので楽チンです
+
+[gulper](http://blog.anatoo.jp/entry/2015/02/01/155545)を使用すると、gulpfile保存時に自動的にgulpを再起動してくれるので楽チンです。
+
 ```console
 sudo npm install -g gulper
 ```
 
-インストール後、
+インストール後、gulpの起動コマンドを
+
 ```console
 gulp {task-name}
 ```
-だったものを
+
+から
+
 ```console
 gulper {task-name}
 ```
-とコマンド入力を少し変更するだけです。
+
+とするだけです。gulpのタスクファイルを保存すると、同時にgulpを再起動してくれます。
+
+### bower
+
+```console
+sudo npm install bower -g
+```
+
+完了したら
+
+```console
+bower -v
+```
+
+bowerのバージョンが表示されればインストールは完了しています。
+
+## 環境構築
+
+### テンプレートセット
+
+任意のディレクトリ階層へクローンしてください。
+
+### パッケージ
+
+ターミナルで上記クローンしたディレクトリへ移動して
+
+``` console
+sudo npm install
+```
+
+gulpの起動に必要なプラグインをインストールします。  
+package.jsonで管理しています。
+
+``` console
+bower install
+```
+
+bower.jsonで管理してるライブラリをインストールします。  
+初期状態ではjquery 1系の最新版を読み込みます。  
+
+新たにライブラリを追加する際は
+
+```console
+bower install {ライブラリ名}
+```
+
+bower上でライブラリを検索するには
+
+```console
+bower search {ライブラリ名}
+```
 
 
 ## 概要
 
 ### ディレクトリ構成
 
-gulp_ect  
-　├app  
-　│　├develop  
-　│　├product  
-　│　└src  
-　├bower_components  
-　│　└※省略  
-　├gulp  
-　│　├config.coffee  
-　│　└tasks # タスク毎にファイルを分割  
-　│　　browser.coffee  
-　│　　build.coffee  
-　│　　coffee.coffee  
-　│　　copy.coffee  
-　│　　default.coffee  
-　│　　ect.coffee  
-　│　　sass.coffee  
-　│　　watch.coffee  
-　└node_modules  
-　　└※省略  
+~~~~
+
+gulp_ect
+  ├── README.md
+  ├── bower.json
+  ├── config.rb
+  ├── gulpfile.coffee
+  ├── package.json
+  ├── app
+  │   └── src
+  │       ├── coffee
+  │       │   └── script.coffee
+  │       ├── data
+  │       │   └── init.yaml
+  │       ├── js
+  │       │   ├── jquery.transit.js
+  │       │   ├── ltIE8
+  │       │   │   ├── html5shiv.js
+  │       │   │   └── selectivizr-min.js
+  │       │   └── script.js
+  │       ├── sass
+  │       │   └── 省略
+  │       └── templates
+  │           ├── content
+  │           │   ├── hoge
+  │           │   ├── fuga
+  │           │   ├── images
+  │           │   └── index.ect
+  │           ├── layout
+  │           │   └── layout.ect
+  │           └── partials
+  │               ├── breadcrumb-list.ect
+  │               └── gnav.ect
+  └── gulp
+      ├── config.coffee
+      └── tasks
+          ├── browser.cofee
+          ├── build.coffee
+          ├── coffee.coffee
+          ├── copy.coffee
+          ├── default.coffee
+          ├── ect.coffee
+          ├── sass.coffee
+          └── watch.coffee
+
+~~~~
 
 
-
-
-
-
+書きかけです。
+随時アップデートしていきます。
 
 
 
@@ -106,28 +190,6 @@ gulp_ect
 
 
 <!--
-## 環境構築
-任意のディレクトリ階層へクローンしてください
-
-### npmプラグインのインストール
-```console
-$ sudo npm install
-```
-
-node_modulesというディレクトリ内にpackage.json内で指定されたプラグイン群がインストールされます
-
-コマンドラインで
-```console
-$ gulper
-```
-
-を叩けばgulpが走り始めます。
-
-### bower_componentsのインストール
-
-
-
-
 
 ## 各種設定・データ管理
 ディレクトリ名やminifyの有無等、各種セッティングやページ構成のデータはdata/init.yamlで管理しています。
