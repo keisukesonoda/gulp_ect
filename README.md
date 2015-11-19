@@ -157,14 +157,6 @@ gulp_ect
 gulp 
 ```
 
-いやいや
-
-``` console
-gulper 
-```
-
-せっかくですから使わせてもらいましょう。
-
 サーバーが起動したら、
 
 [http://localhost:8000](http://localhost:8000)に変更が反映されていきます。  
