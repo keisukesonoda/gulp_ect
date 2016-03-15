@@ -1,0 +1,16 @@
+{
+  "name": "gulp_ect",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bxslider-4": "bxSlider#~4.2.5"
+  },
+  "dependencies": {
+    "jquery": "1"
+  }
+}

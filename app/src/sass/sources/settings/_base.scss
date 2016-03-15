@@ -1,0 +1,82 @@
+/*-------------------------------------
+ Base Settings
+-------------------------------------*/
+
+/* font size setting
+-------------------- */
+// 770px以上
+html {
+	font-size: $font-size-base;
+}
+
+// 1pxあたりは0.195%
+// 769: 668px 〜 769px（iphone6 plusヨコ相当）
+// 667: 569px 〜 667px（iphone6ヨコ相当）
+// 568: 415px 〜 568px（iphone5ヨコ相当）
+// 414: 376px 〜 414px（iphone6 plusタテ相当）
+// 375: 321px 〜 375px（iphone6タテ相当）
+// 320: 〜 320px（iphone5タテ相当）
+$pixels: (
+	769: 769px,
+	667: 667px,
+	568: 568px,
+	414: 414px,
+	375: 375px,
+	320: 320px
+);
+
+@each $key, $pixel in $pixels {
+	@media screen and(max-width: #{$pixel}) {
+		html {
+			font-size: 0.195% * $key;
+		}
+	}
+}
+
+
+body {
+	font-size: $font-size-base;
+	font-family: $gothicFont;
+	color: $color-a;
+	-webkit-text-size-adjust: 100%;
+	// -webkit-font-smoothing:antialiased;
+}
+
+/* --------------------
+	tags
+-------------------- */
+a {
+	color: inherit;
+	text-decoration: none;
+}
+b {
+	font-weight: bold;
+}
+i {
+	display: inline-block;
+}
+em {
+	font-style: normal;
+}
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: bottom;
+}
+iframe, object, video, embed {
+	max-width: 100%;
+	display: block;
+	margin: 0 auto;
+}
+table {
+	width: 100%;
+}
+* {
+	outline: none;
+}
+input, textarea {
+	border: none;
+}
+button.ti {
+	text-indent: 160%;
+}

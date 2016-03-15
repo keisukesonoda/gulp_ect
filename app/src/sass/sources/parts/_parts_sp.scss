@@ -1,0 +1,35 @@
+/* -------------------------
+	parts SP
+------------------------- */
+
+
+
+/* tables
+-------------------- */
+.tbl-vertical {
+	$padding: 7%;
+	display: block;
+	&>thead,
+	&>tbody,
+	&>thead>tr,
+	&>tbody>tr,
+	&>thead>tr>th,
+	&>tbody>tr>th,
+	&>thead>tr>td,
+	&>tbody>tr>td {
+		display: block;
+	}
+	tr:last-child {
+		border-bottom: none;
+	}
+	th, td {
+		width: 100% - $padding*2;
+		padding: 5% $padding;
+	}
+	th {
+		text-align: left
+	}
+	td {
+		border-left: none;
+	}
+}

@@ -1,0 +1,88 @@
+settings:
+  directory:
+    names: # ディレクトリ名設定
+      application: app
+      source:      src
+      develop:     develop
+      destination: product
+      sass:        sass
+      css:         css
+      coffee:      coffee
+      js:          js
+      img:         images
+      temp:        templates
+      content:     content
+  javascript:
+    useMinify: true
+    original: # 独自ファイル設定
+      files: # dest連結後に削除するオリジナルファイル
+        - jquery.transit
+        - script
+      name: vendor # dest連結後のファイル名
+    libraries: # bowerで取得したライブラリ設定
+      name: libs # dest連結後のファイル名
+  css:
+    useMinify: true
+
+
+
+metas:
+  global:
+    siteTitle: 'gulp ect sample'
+  defaults:
+    keywords: 'gulp,ect,html,テンプレート'
+    description: 'gulp-ectのサンプルページ'
+    viewport: width=device-width
+  ogs:
+    "og:title": ''
+    "og:description": ''
+    "og:url": ''
+    "og:image": ''
+  twitter:
+    "twitter:title": ''
+    "twitter:description": ''
+    "twitter:url": ''
+    "twitter:image:src": ''
+    "twitter:card": 'summary_large_image'
+
+
+pages:
+  - dir: 
+    files:
+      - name: index
+        title: トップ
+        class: home
+      # - name: ex
+      #   title: example
+      #   class: example
+
+  - dir: hoge
+    files:
+      - name: index
+        title: ほげ-1
+        class: hoge-1
+      - name: hoge
+        title: ほげ-2
+        class: hoge-2
+
+  - dir: fuga
+    files:
+      - name: index
+        title: ふが-1
+        class: fuga-1
+      - name: fuga
+        title: ふが-2
+        class: fuga-2
+
+
+
+
+
+
+
+
+
+
+
+
+

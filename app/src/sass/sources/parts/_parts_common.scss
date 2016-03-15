@@ -1,0 +1,171 @@
+/* -------------------------
+	parts
+------------------------- */
+
+
+/* wrap content
+-------------------- */
+.wrapper {
+	min-width: $container;
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+.container {
+	width: $container;
+	margin: 0 auto;
+}
+
+
+/* texts
+-------------------- */
+.tdu {
+	text-decoration: underline;
+}
+
+
+
+/* links
+-------------------- */
+.lbs {
+	color: $color-a;
+	&:hover {
+		color: $color-a + 50;
+		text-decoration: underline;
+	}
+}
+
+.tdc {
+	border-bottom: 1px solid #9b9b9b;
+	&:hover {
+		border-bottom: none;
+	}
+}
+
+
+/* arrows
+-------------------- */
+.arr {
+	position: relative;
+	&:after {
+		content: "";
+		// background-image: url(../images/arrows.png);
+		@extend .pos-vertical-center;
+	}
+// direction
+	$downSize: 7px;
+	&.down {
+		padding-right: $downSize*1.5;
+		&:after {
+			@include wh($downSize, 4px);
+			right: 0;
+		}
+	}
+// color
+	&.blk.down {
+		&:after {
+			background-position: left top;
+		}
+	}
+}
+
+.txt-arr {
+	&.right:before {
+		content: "→";
+		margin-right: .5em;
+	}
+}
+
+.dbl-arr {
+	&.right:before {
+		content: "»";
+		@extend .fsp5;
+	}
+}
+
+
+/* arrows(triangle)
+-------------------- */
+.triangle {
+	position: relative;
+	display: inline-block;
+	&:before {
+		content: '▶︎';
+		@extend .pos-vertical-center;
+	}
+// direction
+	$rightSize: 5px;
+	&.right {
+		padding-left: $rightSize*4;
+		&:before {
+			@include wh($rightSize, 9px);
+			left: 0;
+		}
+	}
+// colors
+	&.yel.right {
+		&:before {
+			background-position: left top;
+		}
+	}
+	&.gry.right {
+		&:before {
+			background-position: -$rightSize top;
+		}
+	}
+}
+
+
+/* lists
+-------------------- */
+.disc-items {
+	.disc-item {
+		list-style-type: disc;
+		list-style-position: inside;
+		@include indents(.8em);
+		margin-top: 25px;
+		line-height: 2;
+		letter-spacing: 1.5px;
+	}
+}
+
+.notice-items {
+	.notice-item {
+		@include indents(1.1em);
+		&:before {
+			content: "※";
+		}
+	}
+}
+
+.ib-items {
+	display: table;
+	font-size: 0;
+	.ib-item {
+		@extend .fn;
+		display: inline-block;
+		vertical-align: top;
+	}
+}
+
+
+
+
+/* tables
+-------------------- */
+.tbl-base {
+	width: 100%;
+	letter-spacing: 1.5px;
+	tr {
+		border-bottom: 1px solid $color-a;
+		&:first-child {border-top: 1px solid $color-a;}
+	}
+	th, td {
+		padding: 35px;
+		line-height: 1.8;
+	}
+	th {
+		vertical-align: middle;
+	}
+}
