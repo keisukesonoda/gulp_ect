@@ -6,13 +6,12 @@ browser   = require 'browser-sync'
 ###
 	@js src/js内の.jsファイルに変更が加わった際、ディレクトリ構成を保ったままdev/jsにコピー
 ###
-gulp.task 'copy-js', (cb) ->
+gulp.task 'copy-js', ->
 	gulp.src [
 		"#{config.path.src.js}/*.js"
 		"#{config.path.src.js}/**/*.js"
 	], { base: "#{config.path.src.js}" }
 			.pipe gulp.dest "#{config.path.dev.js}"
-			.pipe browser.reload({ stream: true })
 
 
 ###
@@ -23,7 +22,6 @@ gulp.task 'copy-images', ->
 		dir = if page.dir isnt null then page.dir+'/' else ''
 		gulp.src "#{config.path.src.temp}/content/"+dir+"#{config.dir.img}/*"
 				.pipe gulp.dest "#{config.path.dev.root}/"+dir+"#{config.dir.img}"
-				.pipe browser.reload({ stream: true })
 
 
 

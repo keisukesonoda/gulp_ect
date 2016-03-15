@@ -1,46 +1,57 @@
 /* -------------------------------------
-  Smart Phone org settinngs
+	PC general settinngs
 ------------------------------------- */
 
-// ----------------
-// Font Sizes
-// ----------------
 
-// base size
 // ----------------------
-// $font-size-base: 1.0rem; // 10px
-$font-size-base: 1.2rem; // 12px
-// $font-size-base: 1.4rem; // 14px
-
-
-// font-size minus
+//	variables
 // ----------------------
-$font-size-m1: $font-size-base - 0.1rem;
-$font-size-m2: $font-size-base - 0.2rem;
-$font-size-m3: $font-size-base - 0.3rem;
-$font-size-m4: $font-size-base - 0.4rem;
-$font-size-m5: $font-size-base - 0.5rem;
-$font-size-m6: $font-size-base - 0.6rem;
-$font-size-m7: $font-size-base - 0.7rem;
-$font-size-m8: $font-size-base - 0.8rem;
-$font-size-m9: $font-size-base - 0.9rem;
-$font-size-m10: $font-size-base - 1rem;
-// font-size plus
-// ----------------------
-$font-size-p1: $font-size-base + 0.1rem;
-$font-size-p2: $font-size-base + 0.2rem;
-$font-size-p3: $font-size-base + 0.3rem;
-$font-size-p4: $font-size-base + 0.4rem;
-$font-size-p5: $font-size-base + 0.5rem;
-$font-size-p6: $font-size-base + 0.6rem;
-$font-size-p7: $font-size-base + 0.7rem;
-$font-size-p8: $font-size-base + 0.8rem;
-$font-size-p9: $font-size-base + 0.9rem;
-$font-size-p10: $font-size-base + 1rem;
+$container: 960px;
+
+$font-size-base: 14px;
+
+$font-size-m1: $font-size-base - 1px;
+$font-size-m2: $font-size-base - 2px;
+$font-size-m3: $font-size-base - 3px;
+$font-size-m4: $font-size-base - 4px;
+$font-size-m5: $font-size-base - 5px;
+$font-size-m6: $font-size-base - 6px;
+$font-size-m7: $font-size-base - 7px;
+$font-size-m8: $font-size-base - 8px;
+$font-size-m9: $font-size-base - 9px;
+$font-size-m10: $font-size-base - 10px;
+
+$font-size-p1: $font-size-base + 1px;
+$font-size-p2: $font-size-base + 2px;
+$font-size-p3: $font-size-base + 3px;
+$font-size-p4: $font-size-base + 4px;
+$font-size-p5: $font-size-base + 5px;
+$font-size-p6: $font-size-base + 6px;
+$font-size-p7: $font-size-base + 7px;
+$font-size-p8: $font-size-base + 8px;
+$font-size-p9: $font-size-base + 9px;
+$font-size-p10: $font-size-base + 10px;
+
+// Spaces
+$space-base: 5px;
+$space-2: $space-base * 2;
+$space-3: $space-base * 3;
+$space-4: $space-base * 4;
+$space-5: $space-base * 5;
+$space-6: $space-base * 6;
+$space-7: $space-base * 7;
+$space-8: $space-base * 8;
+$space-9: $space-base * 9;
+$space-10: $space-base * 10;
 
 
-// Font Size class
 // ----------------------
+//	PC original styles
+// ----------------------
+.sp {
+	display: none !important;
+}
+
 .fsm1 { font-size: $font-size-m1; }
 .fsm2 { font-size: $font-size-m2; }
 .fsm3 { font-size: $font-size-m3; }
@@ -63,33 +74,14 @@ $font-size-p10: $font-size-base + 1rem;
 .fsp9 { font-size: $font-size-p9; }
 .fsp10 { font-size: $font-size-p10; }
 
+.full	 { width: 100%; }
+.half	 { width: 50%; }
+.third	{ width: 33.3%; }
+.quater { width: 25%; }
+.fifth	{ width: 20%; }
 
-// width
-// .full   { width: 100%; }
-// .half   { width: 50%; }
-// .third  { width: 33.3%; }
-// .quater { width: 25%; }
-// .fifth  { width: 20%; }
-
-// float
-// .fl { float: left; }
-// .fr { float: right; }
-
-
-//  Spacing Classes
-//-------------------------------------
-// Spaces
-$space-base: 1%;
-$space-2: $space-base * 2;
-$space-3: $space-base * 3;
-$space-4: $space-base * 4;
-$space-5: $space-base * 5;
-$space-6: $space-base * 6;
-$space-7: $space-base * 7;
-$space-8: $space-base * 8;
-$space-9: $space-base * 9;
-$space-10: $space-base * 10;
-
+.fl { float: left; }
+.fr { float: right; }
 
 .mgn { margin: 0 !important; }
 .mga { margin: auto !important; }
@@ -164,7 +156,7 @@ $space-10: $space-base * 10;
 .pb8 { padding-bottom: $space-8 !important; }
 .pb9 { padding-bottom: $space-9 !important; }
 .pb10 { padding-bottom: $space-10 !important; }
-.pbx { padding-bottom: $space-4  !important; }
+.pbx { padding-bottom: $space-4	!important; }
 .pln { padding-left: 0 !important; }
 .pls { padding-left: $space-base !important; }
 .pl2 { padding-left: $space-2 !important; }
@@ -188,51 +180,11 @@ $space-10: $space-base * 10;
 .pr9 { padding-right: $space-9 !important; }
 .pr10 { padding-right: $space-10 !important; }
 
-
-
-// ----------------
-// container size
-// ----------------
-
-// container width
-// ----------------------
-$container-main: 100%;
-$container-sub1: 100%;
-$container-sub2: 100%;
-$container-sub3: 100%;
-$container-sub4: 100%;
-$container-sub5: 100%;
-
-
-
-
-
-/* ----------------
-  text image
----------------- */
 .ti {
-  display: inline-block;
-  height: 0;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
-  overflow: hidden;
-  white-space: nowrap;
-  text-indent: 100%;
-  position: relative;
-  a {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-}
-
-// reset
-.rti {
-  height: auto;
-  overflow: visible;
-  text-indent: 0;
-  position: static;
+	display: block;
+	background-repeat: no-repeat;
+	background-position: left top;
+	overflow: hidden;
+	white-space: nowrap;
+	text-indent: 120%;
 }

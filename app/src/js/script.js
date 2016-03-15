@@ -18,7 +18,8 @@ my_initialization = function() {
   my_init.changeTransitTarget();
   my_init.registEasing();
   my_init.getScrollTarget();
-  return my_init.getUseragent();
+  my_init.getUseragent();
+  return my_init.getRootPath();
 };
 
 my_basics = function() {
@@ -99,19 +100,63 @@ my_init.getUseragent = function() {
   })();
 };
 
+my_init.getRootPath = function() {
+  var cur_path, files, i, matchs, results, stylesheets;
+  stylesheets = document.getElementsByTagName('link');
+  cur_path = (function(href) {
+    var a;
+    a = href.replace(/[\?|#].*$/, '');
+    if (!/\/$/.test(a)) {
+      a = a.slice(0, a.lastIndexOf('/') + 1);
+    }
+    return a;
+  })(location.href);
+  files = ['style.css', 'style.min.css'];
+  i = stylesheets.length;
+  results = [];
+  while (i--) {
+    matchs = [stylesheets[i].href.match(/(^|.*\/)style\.css$/), stylesheets[i].href.match(/(^|.*\/)style\.min\.css$/)];
+    results.push($.each(matchs, function(i, match) {
+      var root;
+      if (match !== null) {
+        root = match[1];
+        if (root.substr(0, 1) === '/') {
+          root = location.protocol + '//' + location.host + root;
+        } else if (root.substr(0, 4) === 'file') {
+          root = root;
+        } else if (root.substr(0, 4) !== 'http') {
+          root = cur_path + root;
+        }
+        window.ROOT = root.replace('css/', '');
+        return false;
+      }
+    }));
+  }
+  return results;
+};
+
 my_base = {};
 
 my_base.scrollSection = function() {
-  var tgt, trg;
+  var scr, tgt, trg;
   trg = $('.js-scrKey');
   tgt = $('.js-scrTgt');
+  scr = {};
   return trg.on('click', function(e) {
-    var i, p;
     e.preventDefault();
-    i = trg.index(this);
-    p = tgt.eq(i).offset().top - 10;
-    return $(window.window.scrTgt).animate({
-      scrollTop: p
+    if (!$(this).attr('data-href')) {
+      scr = {};
+      return;
+    } else {
+      scr.to = $(this).attr('data-href');
+    }
+    tgt.each(function() {
+      if ($(this).hasClass(scr.to)) {
+        return scr.pos = ($(this).offset().top) - 30;
+      }
+    });
+    return $(scrTgt).animate({
+      scrollTop: scr.pos
     }, 'fast');
   });
 };

@@ -19,6 +19,7 @@ my_initialization = ->
 	my_init.registEasing()
 	my_init.getScrollTarget()
 	my_init.getUseragent()
+	my_init.getRootPath()
 
 
 my_basics = ->
@@ -116,6 +117,43 @@ my_init.getUseragent = ->
 		}
 
 
+my_init.getRootPath = ->
+	stylesheets = document.getElementsByTagName('link')
+
+	cur_path = ((href) ->
+		a = href.replace(/[\?|#].*$/, '')
+		if !/\/$/.test(a)
+			a = a.slice(0, a.lastIndexOf('/') + 1)
+		a
+	)(location.href)
+
+	files = [
+		'style.css'
+		'style.min.css'
+	]
+
+	i = stylesheets.length
+	while i--
+		matchs = [
+			stylesheets[i].href.match(/(^|.*\/)style\.css$/)
+			stylesheets[i].href.match(/(^|.*\/)style\.min\.css$/)
+		]
+
+		$.each matchs, (i, match) ->
+			if match isnt null
+				root = match[1]
+
+				if root.substr(0, 1) is '/'
+					root = location.protocol + '//' + location.host + root
+				else if root.substr(0, 4) is 'file'
+					root = root
+				else if root.substr(0, 4) isnt 'http'
+					root = cur_path + root
+
+				window.ROOT = root.replace('css/', '')
+
+				return false
+
 
 
 
@@ -127,12 +165,22 @@ my_base = {}
 my_base.scrollSection = ->
 	trg = $('.js-scrKey')
 	tgt = $('.js-scrTgt')
+	scr = {}
 
 	trg.on('click', (e) ->
 		e.preventDefault()
-		i = trg.index(this)
-		p = tgt.eq(i).offset().top - 10
-		$(window.window.scrTgt).animate({ scrollTop: p }, 'fast')
+
+		if ! $(this).attr('data-href')
+			scr = {}
+			return
+		else
+			scr.to = $(this).attr('data-href')
+
+		tgt.each ->
+			if $(this).hasClass(scr.to)
+				scr.pos = ($(this).offset().top) - 30
+
+		$(scrTgt).animate({ scrollTop: scr.pos }, 'fast')
 	)
 
 

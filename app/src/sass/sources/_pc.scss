@@ -1,0 +1,128 @@
+//-------------------------------------
+// import files
+//-------------------------------------
+@import "wp/wp_theme_pc";
+@import "mixin";
+@import "settings/reset";
+@import "wp/wp_native";
+@import "settings/general";
+@import "settings/setting_pc";
+@import "settings/base";
+@import "parts/parts_common";
+@import "parts/parts_pc";
+@import "helper";
+
+// variables
+// $sBdrBlack: 1px solid black;
+// $dsBdrBlack: 1px dashed black;
+
+
+/*-------------------------------------
+	General Purpose
+-------------------------------------*/
+.editor {
+}
+
+/* titles
+-------------------- */
+
+
+
+
+/* backgrounds
+-------------------- */
+
+
+
+
+
+
+
+/* --------------------
+	common sections
+-------------------- */
+
+.contents {
+	min-height: 500px;
+}
+
+
+
+
+
+
+
+
+/* header
+-------------------- */
+.header {
+	color: white;
+	background-color: black;
+	padding: 2em 0;
+}
+
+
+/* footer
+-------------------- */
+.footer {
+	color: white;
+	background-color: black;
+	padding: 2em 0;
+}
+
+
+/* --------------------
+	navigations
+-------------------- */
+
+
+
+
+
+
+
+
+/*-------------------------------------
+	Characteristic
+-------------------------------------*/
+.home {
+}
+
+
+
+/* --------------------
+	lower commons
+-------------------- */
+.lower {
+	.contents {
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

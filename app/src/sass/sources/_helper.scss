@@ -5,8 +5,6 @@
 // Clearfix (.clearfix)
 .clearfix {
   zoom:1;
-  // .left {float: left;}
-  // .right {float: right;}
 }
 .clearfix:after {
   content: "";
@@ -21,7 +19,7 @@
   text-indent: 100%;
 }
 
-// text remobe
+// text remove
 .tr {
   position: absolute;
   top: 0; left: -5000px;

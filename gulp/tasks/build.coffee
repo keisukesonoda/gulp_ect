@@ -12,6 +12,8 @@ rename = require 'gulp-rename'
 uglify = require 'gulp-uglify'
 usemin = require 'gulp-usemin'
 
+require('events').EventEmitter.defaultMaxListeners = 0
+
 ###
 @成果物の生成
 	@build_init

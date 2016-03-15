@@ -1,0 +1,303 @@
+//-------------------------------------
+// import files
+//-------------------------------------
+// @import "wp/wp_theme_sp";
+@import "wp/wp_native";
+@import "mixin";
+@import "settings/reset";
+@import "settings/general";
+@import "settings/setting_sp";
+@import "settings/base";
+@import "parts/parts_common";
+@import "parts/parts_sp";
+@import "helper";
+
+// variables
+// $sBdrBlack: 1px solid black;
+// $dsBdrBlack: 1px dashed black;
+
+
+/*-------------------------------------
+	General Purpose
+-------------------------------------*/
+.sp-container {
+	width: 94%;
+	margin: 0 auto;
+}
+
+.inner-container {
+	width: 86%;
+	margin: 0 auto;
+}
+
+.editor {
+	width: 94%;
+	margin: 0 auto;
+}
+
+
+
+/* titles
+-------------------- */
+
+
+
+
+/* backgrounds
+-------------------- */
+
+
+
+
+
+
+
+/* --------------------
+	common sections
+-------------------- */
+
+.contents {
+	min-height: 500px;
+}
+
+
+
+
+
+
+
+
+/* header
+-------------------- */
+.header {
+	color: white;
+	background-color: black;
+	padding: 2em 0;
+}
+
+
+/* footer
+-------------------- */
+.footer {
+	color: white;
+	background-color: black;
+	padding: 2em 0;
+}
+
+
+/* --------------------
+	navigations
+-------------------- */
+
+
+
+
+
+
+
+
+/*-------------------------------------
+	Characteristic
+-------------------------------------*/
+.home {
+}
+
+
+
+/* --------------------
+	lower commons
+-------------------- */
+.lower {
+	.contents {
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* titles
+-------------------- */
+.title-page {
+	// @extend .fn;
+	// text-align: center;
+	// margin-top: -2%;
+	// margin-bottom: 2%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* --------------------
+	common sections
+-------------------- */
+
+.contents {
+	margin-top: 5%;
+}
+
+
+
+
+
+
+
+
+/* header
+-------------------- */
+.header {
+}
+
+
+
+
+
+/* footer
+-------------------- */
+.footer {
+}
+
+
+
+
+
+
+
+/* --------------------
+	navigations
+-------------------- */
+.gnav {
+}
+
+
+/* main menu
+-------------------- */
+.main-menu-items {
+	// @extend .sp-container;
+}
+.main-menu-item {
+	float: left;
+	// width: 50%;
+	// margin-top: 10%;
+	// position: relative;
+	// &:first-child {
+	// 	margin-left: 0;
+	// 	padding-left: 0;
+	// }
+	// &:first-child,
+	// &:nth-child(2) {
+	// 	margin-top: 0;
+	// }
+}
+
+
+
+/* bnav
+-------------------- */
+.bnav {
+}
+
+
+
+
+
+
+
+
+
+
+/*-------------------------------------
+	Characteristic
+-------------------------------------*/
+.home {
+} // home
+
+
+
+
+/* --------------------
+	lower commons
+-------------------- */
+.lower {
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -10,8 +10,20 @@ browser = require 'browser-sync'
 gulp.task 'server', ->
 	browser({
 		server:
-			baseDir: ["#{config.path.project.root}", "#{config.path.dev.root}"]
+			baseDir: [
+				"#{config.path.project.root}"
+				"#{config.path.dev.root}"
+			]
 		port: 8000
 		open: false
 		reloadDelay: config.params.reloadDelay
 	})
+
+
+
+### -------------------------
+	@reload
+------------------------- ###
+gulp.task 'reload', ->
+	gulp.src './'
+			.pipe browser.reload({ stream: true })

@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+@import "sources/settings/general";
+
+@import "sources/wp/wp_editor";
+
+body {
+	// font-size: 14px;
+	font-family: $gothicFont;
+}

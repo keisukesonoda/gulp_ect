@@ -5,6 +5,7 @@ ect        = require 'gulp-ect-simple'
 inject     = require 'gulp-inject'
 bowerFiles = require 'main-bower-files'
 
+require('events').EventEmitter.defaultMaxListeners = 0
 
 ###
  ectファイルをhtmlへコンパイル
