@@ -18,15 +18,12 @@ gulp.task 'watch', ->
 	], ['copy-images']
 	# sass
 	gulp.watch [
-		"#{conf.path.src.sass}/*.scss"
 		"#{conf.path.src.sass}/**/*.scss"
-		"#{conf.path.src.sass}/**/**/*.scss"
 	], ['sass']
 	# ect
 	gulp.watch [
-		"#{conf.path.src.temp}/**/*.ect"
 		"#{conf.path.src.temp}/**/**/*.ect"
-	], ['ect']
+	], ['ect-basic']
 	# reload
 	gulp.watch "#{conf.path.src.root}/**", ['reload']
 

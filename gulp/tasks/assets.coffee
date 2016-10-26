@@ -2,8 +2,6 @@
 # --------------------
 gulp    = require 'gulp'
 conf    = require '../config'
-browser = require 'browser-sync'
-reload  = browser.reload
 plumber = require 'gulp-plumber'
 rename  = require 'gulp-rename'
 
@@ -15,7 +13,10 @@ sass         = require 'gulp-sass'
 autoprefixer = require 'gulp-autoprefixer'
 
 gulp.task 'sass', ->
-	gulp.src "#{conf.path.src.sass}/**/*.scss"
+	gulp.src [
+		"#{conf.path.src.sass}/**/*.scss"
+		"!#{conf.path.src.sass}/editor-style.scss"
+	]
 			.pipe plumber({
 				handleError: (err) ->
 					console.log err

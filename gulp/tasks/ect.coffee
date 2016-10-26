@@ -1,5 +1,5 @@
 gulp       = require 'gulp'
-config     = require '../config'
+conf       = require '../config'
 browser    = require 'browser-sync'
 ect        = require 'gulp-ect-simple'
 inject     = require 'gulp-inject'
@@ -13,25 +13,25 @@ require('events').EventEmitter.defaultMaxListeners = 0
  2 bower.jsonのsaveに登録されているファイルパスを取得してdev内のhtmlにパスを記載
 ###
 gulp.task 'ect-develop', ->
-	for page in config.init.pages
+	for page in conf.data.init.pages
 		# page.dirがnullの場合はrootパス
 		directory = if page.dir isnt null then page.dir+'/' else ''
 		for file in page.files
-			gulp.src "#{config.path.src.content}/"+directory+file.name+'.ect'
+			gulp.src "#{conf.path.src.content}/"+directory+file.name+'.ect'
 					.pipe ect({
 						options:
-							root: "#{config.path.src.temp}"
+							root: "#{conf.path.src.temp}"
 							ext:  '.ect'
 						data:
 							name: file.name
 							title: file.title
 							class: file.class
 							hierarchy: if ! directory then 'root'
-							init: config.init
+							data: conf.data
 							task: 'develop'
 							ROOT: if page.dir is null then '' else '../'
 					})
-					.pipe gulp.dest "#{config.path.dev.root}/"+directory
+					.pipe gulp.dest "#{conf.path.dev.root}/"+directory
 					.pipe browser.reload({ stream: true })
 
 
@@ -42,19 +42,19 @@ gulp.task 'inject', ['ect-develop'], ->
 	setTimeout ->
 		bower      = gulp.src bowerFiles(),read: false
 		app        = gulp.src [
-									 "#{config.path.dev.js}/*.js"
-									 "#{config.path.dev.css}/*.css"
+									 "#{conf.path.dev.js}/*.js"
+									 "#{conf.path.dev.css}/*.css"
 								 ], read: false
 
-		for page in config.init.pages
+		for page in conf.data.init.pages
 			directory = if page.dir isnt null then page.dir+'/' else ''
 			for file in page.files
-				gulp.src "#{config.path.dev.root}/"+directory+file.name+'.html'
+				gulp.src "#{conf.path.dev.root}/"+directory+file.name+'.html'
 						.pipe inject bower, relative: true, name: 'bower'
 						.pipe inject app, relative: true, name: 'app'
-						.pipe gulp.dest "#{config.path.dev.root}/"+directory
-	, config.params.reloadDelay
+						.pipe gulp.dest "#{conf.path.dev.root}/"+directory
+	, conf.params.reloadDelay
 
 
-gulp.task 'ect', ['inject']
+gulp.task 'ect-basic', ['inject']
 

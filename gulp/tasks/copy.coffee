@@ -1,6 +1,5 @@
-gulp      = require 'gulp'
-config    = require '../config'
-browser   = require 'browser-sync'
+gulp = require 'gulp'
+conf = require '../config'
 
 
 ###
@@ -8,20 +7,20 @@ browser   = require 'browser-sync'
 ###
 gulp.task 'copy-js', ->
 	gulp.src [
-		"#{config.path.src.js}/*.js"
-		"#{config.path.src.js}/**/*.js"
-	], { base: "#{config.path.src.js}" }
-			.pipe gulp.dest "#{config.path.dev.js}"
+		"#{conf.path.src.js}/*.js"
+		"#{conf.path.src.js}/**/*.js"
+	], { base: "#{conf.path.src.js}" }
+			.pipe gulp.dest "#{conf.path.dev.js}"
 
 
 ###
   @css init.yamlで指定されたページディレクトリ内のimgファイルをdest内の同階層ディレクトリへ
 ###
 gulp.task 'copy-images', ->
-	for page in config.init.pages
+	for page in conf.data.init.pages
 		dir = if page.dir isnt null then page.dir+'/' else ''
-		gulp.src "#{config.path.src.temp}/content/"+dir+"#{config.dir.img}/*"
-				.pipe gulp.dest "#{config.path.dev.root}/"+dir+"#{config.dir.img}"
+		gulp.src "#{conf.path.src.temp}/content/"+dir+"#{conf.dir.img}/*"
+				.pipe gulp.dest "#{conf.path.dev.root}/"+dir+"#{conf.dir.img}"
 
 
 
